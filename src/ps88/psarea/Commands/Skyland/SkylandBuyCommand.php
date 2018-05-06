@@ -1,26 +1,26 @@
 <?php
-    namespace ps88\psarea\Commands\Island;
+    namespace ps88\psarea\Commands\Skyland;
 
     use nlog\StormCore\StormPlayer;
     use pocketmine\command\Command;
     use pocketmine\command\CommandSender;
-    use ps88\psarea\Loaders\Island\IslandLoader;
+    use ps88\psarea\Loaders\Skyland\SkylandLoader;
     use ps88\psarea\PSAreaMain;
 
-    class IslandBuyCommand extends Command {
+    class SkylandBuyCommand extends Command {
 
         /** @var PSAreaMain */
         private $owner;
 
         /**
-         * IslandBuyCommand constructor.
+         * SkylandBuyCommand constructor.
          * @param string $name
          * @param PSAreaMain $owner
          * @param string $description
          * @param string|null $usageMessage
          * @param array $aliases
          */
-        public function __construct(PSAreaMain $owner, string $name = "buyisland", string $description = "Buy Island", string $usageMessage = "/buyisland [id]", $aliases = ['Id']) {
+        public function __construct(PSAreaMain $owner, string $name = "buyskyland", string $description = "Buy skyland", string $usageMessage = "/buyskyland [id]", $aliases = ['Id']) {
             parent::__construct($name, $description, $usageMessage, $aliases);
             $this->owner = $owner;
         }
@@ -41,7 +41,7 @@
                 $sender->sendMessage($this->getUsage());
                 return;
             }
-            if (($a = $this->owner->islandloader->getAreaById($args[0])) == \null) {
+            if (($a = $this->owner->skylandloader->getAreaById($args[0])) == \null) {
                 $sender->sendMessage("Doesn't Exist");
                 return;
             }
@@ -49,17 +49,17 @@
                 $sender->sendMessage("Owner already Exist");
                 return;
             }
-            if (count($this->owner->islandloader->getAreasByOwner($sender->getName())) >= IslandLoader::Maximum_Lands) {
-                $sender->sendMessage("You already have maximum islands");
+            if (count($this->owner->skylandloader->getAreasByOwner($sender->getName())) >= SkylandLoader::Maximum_Lands) {
+                $sender->sendMessage("You already have maximum Skylands");
                 return;
             }
-            if ($sender->getMoney() < IslandLoader::Land_Price) {
+            if ($sender->getMoney() < SkylandLoader::Land_Price) {
                 $sender->sendMessage("You need 30000$ to buy");
                 return;
             }
             $a->setOwner($sender);
-            $sender->reduceMoney(IslandLoader::Land_Price);
-            $sender->sendMessage("You bought {$args[0]} island");
+            $sender->reduceMoney(SkylandLoader::Land_Price);
+            $sender->sendMessage("You bought {$args[0]} Skyland");
             $sender->sendMessage("Your money now : {$sender->getMoney()}");
             return;
         }

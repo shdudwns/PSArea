@@ -8,15 +8,17 @@
     use ps88\psarea\Loaders\base\BaseArea;
     use ps88\psarea\Loaders\base\BaseLoader;
 
-    class IslandLoader extends BaseLoader{
-        /** @var IslandArea[]  */
+    class IslandLoader extends BaseLoader {
+        /** @var IslandArea[] */
         public $areas = [];
+
+        public static $landcount = 0;
 
         /**
          * @param string $name
          * @return IslandArea[]
          */
-        public function getAreasByOwner(string $name): array{
+        public function getAreasByOwner(string $name): array {
             return parent::getAreasByOwner($name);
         }
 
@@ -24,7 +26,7 @@
          * @param string $name
          * @return IslandArea[]
          */
-        public function getAreasSharedAndOwned(string $name): array{
+        public function getAreasSharedAndOwned(string $name): array {
             return parent::getAreasSharedAndOwned($name);
         }
 
@@ -32,16 +34,16 @@
          * @param int $id
          * @return null|IslandArea|BaseArea
          */
-        public function getAreaById(int $id): ?BaseArea{
-            return (($a = parent::getAreaById($id)) instanceof IslandArea)? $a : \null;
+        public function getAreaById(int $id): ?BaseArea {
+            return (($a = parent::getAreaById($id)) instanceof IslandArea) ? $a : \null;
         }
 
         /**
          * @param BaseArea|IslandArea $area
          * @return bool
          */
-        public function addArea(BaseArea $area): bool{
-            if(! $area instanceof IslandArea) return \false;
+        public function addArea(BaseArea $area): bool {
+            if (!$area instanceof IslandArea) return \false;
             return parent::addArea($area);
         }
 
@@ -50,13 +52,13 @@
          * @return null|BaseArea|IslandArea
          */
         public function getAreaByVector3(Vector3 $vec): ?BaseArea {
-            return (($a = parent::getAreaByVector3($vec)) instanceof IslandArea)? $a : \null;
+            return (($a = parent::getAreaByVector3($vec)) instanceof IslandArea) ? $a : \null;
         }
 
         /**
          * @return IslandArea[]
          */
-        public function getAreas(): array{
+        public function getAreas(): array {
             return $this->areas;
         }
 
@@ -70,7 +72,7 @@
         public function loadLevel(): void {
             Generator::addGenerator(IslandGenerator::class, 'island');
             $g = Generator::getGenerator("island");
-            if(! Server::getInstance()->loadLevel("island")){
+            if (!Server::getInstance()->loadLevel("island")) {
                 @mkdir(Server::getInstance()->getDataPath() . "/" . "worlds" . "/" . "island");
                 Server::getInstance()->generateLevel("island", \null, $g, []);
             }

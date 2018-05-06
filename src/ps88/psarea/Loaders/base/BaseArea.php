@@ -4,7 +4,7 @@
     use pocketmine\math\Vector2;
     use pocketmine\Player;
 
-    abstract class BaseArea{
+    abstract class BaseArea {
         public const Island = 0;
         public const Field = 1;
         public const Skyland = 2;
@@ -12,19 +12,19 @@
         /** @var int */
         public const LandType = -1;
 
-        /** @var Vector2  */
+        /** @var Vector2 */
         public $minvec;
 
-        /** @var Vector2  */
+        /** @var Vector2 */
         public $maxvec;
 
         /** @var Player|null */
         public $owner = \null;
 
-        /** @var Player[]  */
+        /** @var Player[] */
         public $shares = [];
 
-        /** @var int  */
+        /** @var int */
         private $landnum;
 
         /**
@@ -35,7 +35,7 @@
          * @param Player|null $owner
          * @param Player[] $shares
          */
-        public function __construct(int $landnum, Vector2 $minvec, Vector2 $maxvec, ?Player $owner = \null, array $shares = []){
+        public function __construct(int $landnum, Vector2 $minvec, Vector2 $maxvec, ?Player $owner = \null, array $shares = []) {
             $this->landnum = $landnum;
             $this->minvec = $minvec;
             $this->maxvec = $maxvec;
@@ -92,15 +92,15 @@
             return $this->shares;
         }
 
-        public function getShare(string $name): ?Player{
-            foreach ($this->getShares() as $player){
-                if($player->getName() == $name) return $player;
+        public function getShare(string $name): ?Player {
+            foreach ($this->getShares() as $player) {
+                if ($player->getName() == $name) return $player;
             }
             return \null;
         }
 
-        public function addShare(Player $pl): void{
-            if($this->getShare($pl->getName()) == \null) return;
+        public function addShare(Player $pl): void {
+            if ($this->getShare($pl->getName()) == \null) return;
             array_push($this->shares, $pl);
         }
 

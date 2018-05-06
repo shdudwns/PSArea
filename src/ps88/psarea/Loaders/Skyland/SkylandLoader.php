@@ -8,15 +8,17 @@
     use ps88\psarea\Loaders\base\BaseArea;
     use ps88\psarea\Loaders\base\BaseLoader;
 
-    class SkylandLoader extends BaseLoader{
-        /** @var SkylandArea[]  */
+    class SkylandLoader extends BaseLoader {
+        /** @var SkylandArea[] */
         public $areas = [];
+
+        public static $landcount = 0;
 
         /**
          * @param string $name
          * @return SkylandArea[]
          */
-        public function getAreasByOwner(string $name): array{
+        public function getAreasByOwner(string $name): array {
             return parent::getAreasByOwner($name);
         }
 
@@ -24,7 +26,7 @@
          * @param string $name
          * @return SkylandArea[]
          */
-        public function getAreasSharedAndOwned(string $name): array{
+        public function getAreasSharedAndOwned(string $name): array {
             return parent::getAreasSharedAndOwned($name);
         }
 
@@ -32,16 +34,16 @@
          * @param int $id
          * @return null|SkylandArea|BaseArea
          */
-        public function getAreaById(int $id): ?BaseArea{
-            return (($a = parent::getAreaById($id)) instanceof SkylandArea)? $a : \null;
+        public function getAreaById(int $id): ?BaseArea {
+            return (($a = parent::getAreaById($id)) instanceof SkylandArea) ? $a : \null;
         }
 
         /**
          * @param BaseArea|SkylandArea $area
          * @return bool
          */
-        public function addArea(BaseArea $area): bool{
-            if(! $area instanceof SkylandArea) return \false;
+        public function addArea(BaseArea $area): bool {
+            if (!$area instanceof SkylandArea) return \false;
             return parent::addArea($area);
         }
 
@@ -50,13 +52,13 @@
          * @return null|BaseArea|SkylandArea
          */
         public function getAreaByVector3(Vector3 $vec): ?BaseArea {
-            return (($a = parent::getAreaByVector3($vec)) instanceof SkylandArea)? $a : \null;
+            return (($a = parent::getAreaByVector3($vec)) instanceof SkylandArea) ? $a : \null;
         }
 
         /**
          * @return SkylandArea[]
          */
-        public function getAreas(): array{
+        public function getAreas(): array {
             return $this->areas;
         }
 
@@ -70,7 +72,7 @@
         public function loadLevel(): void {
             Generator::addGenerator(SkylandGenerator::class, 'skyland');
             $g = Generator::getGenerator("skyland");
-            if(! Server::getInstance()->loadLevel("skyland")){
+            if (!Server::getInstance()->loadLevel("skyland")) {
                 @mkdir(Server::getInstance()->getDataPath() . "/" . "worlds" . "/" . "skyland");
                 Server::getInstance()->generateLevel("skyland", \null, $g, []);
             }

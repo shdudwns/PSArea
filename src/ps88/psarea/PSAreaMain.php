@@ -9,6 +9,12 @@
     use ps88\psarea\Commands\Island\IslandBuyCommand;
     use ps88\psarea\Commands\Island\IslandGiveCommand;
     use ps88\psarea\Commands\Island\IslandInfoCommand;
+    use ps88\psarea\Commands\Island\IslandWarpCommand;
+    use ps88\psarea\Commands\Skyland\SkylandAddShareCommand;
+    use ps88\psarea\Commands\Skyland\SkylandBuyCommand;
+    use ps88\psarea\Commands\Skyland\SkylandGiveCommand;
+    use ps88\psarea\Commands\Skyland\SkylandInfoCommand;
+    use ps88\psarea\Commands\Skyland\SkylandWarpCommand;
     use ps88\psarea\Generator\{
             IslandGenerator, FieldGenerator, SkylandGenerator
     };
@@ -29,7 +35,7 @@
         /** @var SkylandLoader */
         public $skylandloader;
 
-        public function onEnable(){
+        public function onEnable() {
             $this->fieldloader = new FieldLoader();
             $this->islandloader = new IslandLoader();
             $this->skylandloader = new SkylandLoader();
@@ -39,7 +45,7 @@
             $this->registerCommands();
         }
 
-        public function loadLevels(): void{
+        public function loadLevels(): void {
             /** @var BaseLoader[] $loaders */
             $loaders = [
                     $this->fieldloader,
@@ -51,13 +57,19 @@
             }
         }
 
-        public function registerCommands(): void{
-                $this->getServer()->getCommandMap()->registerAll('PSArea', [
-                        new IslandAddShareCommand($this),
-                        new IslandBuyCommand($this),
-                        new IslandGiveCommand($this),
-                        new IslandInfoCommand($this)
-                ]);
+        public function registerCommands(): void {
+            $this->getServer()->getCommandMap()->registerAll('PSArea', [
+                    new IslandAddShareCommand($this),
+                    new IslandBuyCommand($this),
+                    new IslandGiveCommand($this),
+                    new IslandInfoCommand($this),
+                    new IslandWarpCommand($this),
+                    new SkylandAddShareCommand($this),
+                    new SkylandBuyCommand($this),
+                    new SkylandGiveCommand($this),
+                    new SkylandInfoCommand($this),
+                    new SkylandWarpCommand($this)
+            ]);
         }
 
         /**

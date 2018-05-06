@@ -9,7 +9,7 @@
     use ps88\psarea\Loaders\Skyland\SkylandLoader;
     use ps88\psarea\PSAreaMain;
 
-    class AreaAddTask extends PluginTask{
+    class AreaAddTask extends PluginTask {
 
         /** @var PSAreaMain */
         protected $owner;

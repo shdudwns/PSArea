@@ -5,7 +5,7 @@
     use pocketmine\Player;
     use ps88\psarea\Loaders\base\BaseArea;
 
-    class IslandArea extends BaseArea{
+    class IslandArea extends BaseArea {
         public const LandType = self::Island;
 
         /** @var Vector2 */

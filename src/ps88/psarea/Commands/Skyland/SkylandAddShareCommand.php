@@ -1,27 +1,27 @@
 <?php
-    namespace ps88\psarea\Commands\Island;
+    namespace ps88\psarea\Commands\Skyland;
 
     use nlog\StormCore\StormPlayer;
     use pocketmine\command\Command;
     use pocketmine\command\CommandSender;
     use pocketmine\Server;
-    use ps88\psarea\Loaders\Island\IslandLoader;
+    use ps88\psarea\Loaders\Skyland\SkylandLoader;
     use ps88\psarea\PSAreaMain;
 
-    class IslandAddShareCommand extends Command {
+    class SkylandAddShareCommand extends Command {
 
         /** @var PSAreaMain */
         private $owner;
 
         /**
-         * IslandAddShareCommand constructor.
+         * SkylandAddShareCommand constructor.
          * @param string $name
          * @param PSAreaMain $owner
          * @param string $description
          * @param string|null $usageMessage
          * @param array $aliases
          */
-        public function __construct(PSAreaMain $owner, string $name = "addislandshare", string $description = "Add Island Shared Player", string $usageMessage = "/addislandshare [player] [id]", $aliases = ['Player', 'Id']) {
+        public function __construct(PSAreaMain $owner, string $name = "addskylandshare", string $description = "Add Skyland Shared Player", string $usageMessage = "/addskylandshare [player] [id]", $aliases = ['Player', 'Id']) {
             parent::__construct($name, $description, $usageMessage, $aliases);
             $this->owner = $owner;
         }
@@ -38,13 +38,13 @@
                 $sender->sendMessage("Only Player Can see this.");
                 return;
             }
-            $id = (!isset($args[0])) ? $this->owner->islandloader->getAreaByVector3($sender) : (int) $args[1];
-            if (($a = $this->owner->islandloader->getAreaById($id)) == \null) {
+            $id = (!isset($args[0])) ? $this->owner->skylandloader->getAreaByVector3($sender) : (int) $args[1];
+            if (($a = $this->owner->skylandloader->getAreaById($id)) == \null) {
                 $sender->sendMessage("Not Registered");
                 return;
             }
             if ($a->owner->getName() !== $sender->getName()) {
-                $sender->sendMessage("It's not your island");
+                $sender->sendMessage("It's not your Skyland");
                 return;
             }
             if (!isset($args[1])) {
@@ -57,7 +57,7 @@
                 return;
             }
             $a->addShare($pl);
-            $sender->sendMessage("You add {$pl->getName()} at {$id} island");
+            $sender->sendMessage("You add {$pl->getName()} at {$id} Skyland");
             return;
         }
     }
