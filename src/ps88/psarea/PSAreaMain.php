@@ -22,6 +22,7 @@
     use ps88\psarea\Loaders\Field\FieldLoader;
     use ps88\psarea\Loaders\Island\IslandLoader;
     use ps88\psarea\Loaders\Skyland\SkylandLoader;
+    use ps88\psarea\MoneyTranslate\MoneyTranslator;
     use ps88\psarea\Tasks\AreaAddTask;
 
     class PSAreaMain extends PluginBase implements Listener {
@@ -35,6 +36,9 @@
         /** @var SkylandLoader */
         public $skylandloader;
 
+        /** @var MoneyTranslator */
+        public $moneytranslator;
+
         public function onEnable() {
             $this->fieldloader = new FieldLoader();
             $this->islandloader = new IslandLoader();
@@ -43,6 +47,14 @@
             $this->getServer()->getScheduler()->scheduleRepeatingTask(new AreaAddTask($this), 3);
             $this->loadLevels();
             $this->registerCommands();
+            if($this->getServer()->getPluginManager()->getPlugin('StormCore') !== \null){
+                $this->moneytranslator = new MoneyTranslator($this->getServer()->getPluginManager()->getPlugin('StormCore'));
+            }elseif ($this->getServer()->getPluginManager()->getPlugin('EconomyAPI') !== \null){
+                $this->moneytranslator = new MoneyTranslator($this->getServer()->getPluginManager()->getPlugin('EconomyAPI'));
+            }else{
+                $this->getLogger()->emergency("No Money(EconomyAPI etc..) Plugin");
+                $this->getServer()->getPluginManager()->disablePlugin($this);
+            }
         }
 
         public function loadLevels(): void {

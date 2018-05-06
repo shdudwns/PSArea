@@ -4,9 +4,11 @@
     use nlog\StormCore\StormPlayer;
     use pocketmine\command\Command;
     use pocketmine\command\CommandSender;
+    use pocketmine\Player;
     use pocketmine\Server;
     use ps88\psarea\Events\LandBuyEvent;
     use ps88\psarea\Loaders\Island\IslandLoader;
+    use ps88\psarea\MoneyTranslate\MoneyTranslator;
     use ps88\psarea\PSAreaMain;
 
     class IslandBuyCommand extends Command {
@@ -35,7 +37,7 @@
          * @return mixed
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args) {
-            if (!$sender instanceof StormPlayer) {
+            if (!$sender instanceof Player) {
                 $sender->sendMessage("Only Player Can Buy this.");
                 return;
             }
@@ -55,7 +57,7 @@
                 $sender->sendMessage("You already have maximum islands");
                 return;
             }
-            if ($sender->getMoney() < IslandLoader::Land_Price) {
+            if (MoneyTranslator::getInstance()->getMoney($sender) < IslandLoader::Land_Price) {
                 $sender->sendMessage("You need 30000$ to buy");
                 return;
             }
@@ -65,9 +67,10 @@
                 return;
             }
             $a->setOwner($sender);
-            $sender->reduceMoney(IslandLoader::Land_Price);
+            MoneyTranslator::getInstance()->reduceMoney($sender, IslandLoader::Land_Price);
             $sender->sendMessage("You bought {$args[0]} island");
-            $sender->sendMessage("Your money now : {$sender->getMoney()}");
+            $nm = MoneyTranslator::getInstance()->getMoney($sender);
+            $sender->sendMessage("Your money now : {$nm}");
             return;
         }
     }

@@ -7,6 +7,7 @@
     use pocketmine\Server;
     use ps88\psarea\Events\LandBuyEvent;
     use ps88\psarea\Loaders\Skyland\SkylandLoader;
+    use ps88\psarea\MoneyTranslate\MoneyTranslator;
     use ps88\psarea\PSAreaMain;
 
     class SkylandBuyCommand extends Command {
@@ -55,7 +56,7 @@
                 $sender->sendMessage("You already have maximum Skylands");
                 return;
             }
-            if ($sender->getMoney() < SkylandLoader::Land_Price) {
+            if (MoneyTranslator::getInstance()->getMoney($sender) < SkylandLoader::Land_Price) {
                 $sender->sendMessage("You need 30000$ to buy");
                 return;
             }
@@ -65,9 +66,10 @@
                 return;
             }
             $a->setOwner($sender);
-            $sender->reduceMoney(SkylandLoader::Land_Price);
-            $sender->sendMessage("You bought {$args[0]} Skyland");
-            $sender->sendMessage("Your money now : {$sender->getMoney()}");
+            MoneyTranslator::getInstance()->reduceMoney($sender, SkylandLoader::Land_Price);
+            $sender->sendMessage("You bought {$args[0]} skyland");
+            $nm = MoneyTranslator::getInstance()->getMoney($sender);
+            $sender->sendMessage("Your money now : {$nm}");
             return;
         }
     }

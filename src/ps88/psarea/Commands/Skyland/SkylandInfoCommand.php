@@ -4,6 +4,7 @@
     use nlog\StormCore\StormPlayer;
     use pocketmine\command\Command;
     use pocketmine\command\CommandSender;
+    use pocketmine\Player;
     use ps88\psarea\Loaders\Skyland\SkylandLoader;
     use ps88\psarea\PSAreaMain;
 
@@ -33,7 +34,7 @@
          * @return mixed
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args) {
-            if (!$sender instanceof StormPlayer) {
+            if (!$sender instanceof Player) {
                 $sender->sendMessage("Only Player Can see this.");
                 return;
             }
