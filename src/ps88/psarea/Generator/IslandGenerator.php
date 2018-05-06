@@ -1,7 +1,7 @@
 <?php
-namespace mpm\Generator;
+    namespace ps88\psarea\Generator;
 
-use mpm\Object\Sphere;
+use ps88\psarea\Object\Sphere;
     use pocketmine\level\biome\Biome;
     use pocketmine\math\Vector3;
 use pocketmine\level\ChunkManager;

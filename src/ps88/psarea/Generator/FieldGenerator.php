@@ -1,187 +1,149 @@
 <?php
-    namespace mpm\Generator;
+    namespace ps88\psarea\Generator;
 
     /*
      * 이 코드는 SOLOLand(Nukkit) 에서 가져왔으며
-     * PS88이 java에서 php로 번역하였음을 알려드립니다->
+     * PS88이 java에서 php로 번역하였음을 알려드립니다.
      */
 
     use pocketmine\level\generator\Generator;
     use pocketmine\block\Block;
     use pocketmine\block\Stone as BlockStone;
     use pocketmine\level\ChunkManager;
-    use pocketmine\math\Vector2;
     use pocketmine\math\Vector3;
-    use pocketmine\utils\{
-            Random, Config
-    };
+    use pocketmine\utils\{Random, Config};
 
-    class FieldGenerator extends Generator {
+    class FieldGenerator extends Generator{
+
+        //public static TYPE_GRID_LAND = 11;
 
         /** @var ChunkManager */
         private $level;
 
-        /** @var array */
-        private $options;
-
-        /** @var int */
+        private $options = [];
         private $floorLevel;
 
-        /** @var string */
-        private $preset = "1;7,4x1,3x3;3;road(block=1:6 width=5 depth=5),land(width=32 depth=32 border=43 block=2)";
+        private $random;
 
-        /** @var int */
+        private $preset = "1;7,4x1,3x3;3;road(block=1:6 width=5 depth=5),land(width=32 depth=32 border=43 block=2)";
         private $version = 1;
 
-        /** @var int[] */
-        private $flatBlocksId = [Block::BEDROCK, Block::STONE, Block::STONE, Block::STONE, Block::STONE, Block::DIRT, Block::DIRT, Block::DIRT];
-        /** @var int[] */
-        private $flatBlocksDamage = [0, 0, 0, 0, 0, 0, 0, 0];
-        /** @var int */
-        private $roadBlockId = Block::STONE;
-        /** @var int */
-        private $roadBlockDamage = BlockStone::POLISHED_ANDESITE;
-        /** @var int */
+        private $flatBlocks = [[Block::BEDROCK, 0], [Block::STONE, 0], [Block::STONE, 0], [Block::STONE, 0], [Block::STONE, 0], [Block::DIRT, 0], [Block::DIRT, 0], [Block::DIRT, 0]];
+        private $roadBlock = [Block::STONE, BlockStone::POLISHED_ANDESITE];
         private $roadWidth = 5;
-        /** @var int */
         private $roadDepth = 5;
 
-        /** @var int */
-        private $landBlockId = 2;
-        /** @var int */
-        private $landBlockDamage = 0;
-        /** @var int */
+        private $landBlock = [Block::GRASS, 0];
         private $landWidth = 32;
-        /** @var int */
         private $landDepth = 32;
-        /** @var int */
-        private $landBorderBlockId = Block::DOUBLE_STONE_SLAB;
-        /** @var int */
-        private $landBorderBlockDamage = 0;
+        private $landBorderBlock = [168, 0]; //Block::DOUBLE_SLAB; //..?
 
-
-        /**
-         * @return ChunkManager
-         */
-        public function getChunkManager(): ChunkManager {
+        public function getChunkManager() : ChunkManager{
             return $this->level;
         }
 
-
-        /**
-         * @return array
-         */
-        public function getSettings(): array {
+        public function getSettings() : array{
             return $this->options;
         }
 
-
-        public function getName(): string {
+        public function getName() : string{
             return "field";
         }
 
-        public function __construct(array $settings = []) {
-            parent::__construct($settings);
+        public function init(ChunkManager $level, Random $random){
+            $this->level = $level;
+            $this->random = $random;
         }
 
-        public function getLandWidth(): int {
+        public function __construct(array $options = []){
+
+        }
+
+        public function getLandWidth() : int{
             return $this->landWidth;
         }
 
-        public function getLandDepth(): int {
+        public function getLandDepth() : int{
             return $this->landDepth;
         }
 
-        public function getRoadWidth(): int {
+        public function getRoadWidth() : int{
             return $this->roadWidth;
         }
 
-        public function getRoadDepth(): int {
+        public function getRoadDepth() : int{
             return $this->roadDepth;
         }
 
-
-        /**
-         * @param ChunkManager $level
-         * @param Random? $random
-         */
-        public function init(ChunkManager $level, Random $random = \null) {
-            $this->level = $level;
-        }
-
-
-        /**
-         * @param int $chunkX
-         * @param int $chunkZ
-         */
-        public function generateChunk(int $chunkX, int $chunkZ): void {
+        public function generateChunk(int $chunkX, int $chunkZ){
             $chunk = $this->level->getChunk($chunkX, $chunkZ);
-            if ($chunkX >= 0 && $chunkZ >= 0) {
-                for ($x = 0; $x <= 15; $x++) {
-                    for ($z = 0; $z <= 15; $z++) {
-                        for ($i = 0; $i < count($this->flatBlocksId); $i++) {
-                            $chunk->setBlock($x, $i, $z, $this->flatBlocksId[$i], $this->flatBlocksDamage[$i]);
+            if($chunkX >= 0 && $chunkZ >= 0){
+                for($x = 0; $x <= 15; $x++){
+                    for($z = 0; $z <= 15; $z++){
+                        $y = 0;
+                        foreach($this->flatBlocks as $flatBlock){
+                            $chunk->setBlock($x, $y++, $z, ...$flatBlock);
                         }
-                        $calcRet = $this->calcGen($chunkX * 16 + $x, $chunkZ * 16 + $z);
-                        $chunk->setBlock($x, count($this->flatBlocksId), $z, $calcRet[0], $calcRet[1]);
+                        $chunk->setBlock($x, $y, $z, ...$this->calcGen($chunkX * 16 + $x, $chunkZ * 16 + $z));
                     }
                 }
             }
             $this->level->setChunk($chunkX, $chunkZ, $chunk);
         }
 
-        /**
-         * @param int $worldX
-         * @param int $worldZ
-         * @return array
-         */
-        private function calcGen(int $worldX, int $worldZ): array {
-            $landBlock = [$this->landBlockId, $this->landBlockDamage];
-            $roadBlock = [$this->roadBlockId, $this->roadBlockDamage];
-            $landBorder = [$this->landBorderBlockId, $this->landBorderBlockDamage];
+        private function calcGen(int $worldX, int $worldZ){
+            if($worldX == 0 || $worldZ == 0){
+                return $this->landBorderBlock;
+            }
+            $gridlandX = $worldX % ($this->landWidth + $this->roadWidth);
+            $gridlandZ = $worldZ % ($this->landDepth + $this->roadDepth);
 
-            if ($worldX == 0 || $worldZ == 0) {
-                return $landBorder;
+            if($gridlandX >= ($this->roadWidth + 2) && $gridlandZ >= ($this->roadDepth + 2)){
+                return $this->landBlock;
             }
-            $gridlandx = $worldX % ($this->landWidth + $this->roadWidth);
-            $gridlandz = $worldZ % ($this->landDepth + $this->roadDepth);
-
-
-            if ($gridlandx >= ($this->roadWidth + 2) && $gridlandz >= ($this->roadDepth + 2)) {
-                return $landBlock;
+            if($gridlandX >= ($this->roadWidth + 1) && $gridlandZ >= ($this->roadDepth + 1)){
+                return $this->landBorderBlock;
             }
-
-            //center grass edge (block code 43) part
-            if ($gridlandx >= ($this->roadWidth + 1) && $gridlandz >= ($this->roadDepth + 1)) {
-                return $landBorder;
+            if($gridlandX >= 1 && $gridlandZ >= 1){
+                return $this->roadBlock;
             }
-
-            //road (block code 1:6) part
-            if ($gridlandx >= 1 && $gridlandz >= 1) {
-                return $roadBlock;
+            if($gridlandX == 0 && $gridlandZ >= $this->roadDepth + 1){
+                return $this->landBorderBlock;
             }
-
-            if ($gridlandx == 0 && $gridlandz >= ($this->roadDepth + 1)) {
-                return $landBorder;
+            if($gridlandZ == 0 && $gridlandX >= $this->roadWidth + 1){
+                return $this->landBorderBlock;
             }
-            if ($gridlandz == 0 && $gridlandx >= ($this->roadWidth + 1)) {
-                return $landBorder;
+            if($gridlandX == 0 && $gridlandZ == 0){
+                return $this->landBorderBlock;
             }
-            if ($gridlandx == 0 && $gridlandz == 0) {
-                return $landBorder;
-            }
-            return $roadBlock;
+            return $this->roadBlock;
         }
 
+        private function Gen(int $worldX, int $worldZ){
+            $gridlandX = $worldX % ($this->landWidth + $this->roadWidth);
+            $gridlandZ = $worldZ % ($this->landDepth + $this->roadDepth);
 
-        public function populateChunk(int $chunkX, int $chunkZ): void {
+            if($gridlandX >= ($this->roadWidth + 1) && $gridlandZ >= ($this->roadDepth + 1)){
+                return true;
+            }
+            if($gridlandX == 0 && $gridlandZ >= $this->roadDepth + 1){
+                return true;
+            }
+            if($gridlandZ == 0 && $gridlandX >= $this->roadWidth + 1){
+                return true;
+            }
+            if($gridlandX == 0 && $gridlandZ == 0){
+                return true;
+            }
+            return false;
         }
 
+        public function populateChunk(int $chunkX, int $chunkZ){
 
-        public function getSpawn(): Vector3 {
+        }
+
+        public function getSpawn() : Vector3{
             return new Vector3(128, $this->floorLevel, 128);
         }
-
     }
 
-?>

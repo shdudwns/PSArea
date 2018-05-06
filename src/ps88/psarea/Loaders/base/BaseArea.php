@@ -1,15 +1,13 @@
 <?php
-    namespace ps88\psarea\Area;
+    namespace ps88\psarea\Loaders\base;
 
     use pocketmine\math\Vector2;
     use pocketmine\Player;
 
-    abstract class Area{
+    abstract class BaseArea{
         public const Island = 0;
         public const Field = 1;
         public const Skyland = 2;
-
-        public static $landcount;
 
         /** @var int */
         public const LandType = -1;
@@ -30,7 +28,7 @@
         private $landnum;
 
         /**
-         * Area constructor.
+         * BaseArea constructor.
          * @param int $landnum
          * @param Vector2 $minvec
          * @param Vector2 $maxvec

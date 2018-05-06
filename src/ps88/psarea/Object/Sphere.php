@@ -1,6 +1,6 @@
 <?php
 
-namespace mpm\Object;
+namespace ps88\psarea\Object;
 
 use pocketmine\math\Vector3;
 
