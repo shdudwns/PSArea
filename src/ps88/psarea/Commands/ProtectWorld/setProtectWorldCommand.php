@@ -1,17 +1,13 @@
 <?php
-    namespace ps88\psarea\Commands\Island;
+    namespace ps88\psarea\Commands\ProtectWorld;
 
-    use nlog\StormCore\StormPlayer;
     use pocketmine\command\Command;
     use pocketmine\command\CommandSender;
-    use pocketmine\level\Position;
     use pocketmine\Player;
     use pocketmine\Server;
-    use ps88\psarea\Loaders\Island\IslandLoader;
     use ps88\psarea\PSAreaMain;
 
-    class IslandWarpCommand extends Command {
-
+    class setProtectWorldCommand extends Command{
         /** @var PSAreaMain */
         private $owner;
 
@@ -23,7 +19,7 @@
          * @param string|null $usageMessage
          * @param array $aliases
          */
-        public function __construct(PSAreaMain $owner, string $name = "warpisland", string $description = "Warp to Island", string $usageMessage = "/warpisland [id]", $aliases = ['Id']) {
+        public function __construct(PSAreaMain $owner, string $name = "setprotectworld", string $description = "Set Protected World", string $usageMessage = "/setprotectworld [level] [isProtect(true)]", $aliases = ['level', 'isProtect']) {
             parent::__construct($name, $description, $usageMessage, $aliases);
             $this->owner = $owner;
         }
@@ -40,20 +36,13 @@
                 $sender->sendMessage("Only Player Can see this.");
                 return;
             }
-            if(! isset($args[0])){
-                $sender->sendMessage($this->getUsage());
+            $level = (! isset($args[0]))? $sender->getLevel(): Server::getInstance()->getLevelByName($args[0]);
+            if($level == \null){
+                $sender->sendMessage("Can't find any Level");
                 return;
             }
-            $id = (int) $args[0];
-            if (($a = $this->owner->islandloader->getAreaById($id)) == \null) {
-                $sender->sendMessage("Not Registered");
-                return;
-            }
-            if (!$a->Warp($sender)) {
-                $sender->sendMessage("Cancelled by Plugin");
-                return;
-            }
-            $sender->sendMessage("Warped to {$id} island");
+            $this->owner->protectworld->setLevelProtect($level, \true);
+            $sender->sendMessage("{$level->getName()} world will be protected now");
             return;
         }
     }
