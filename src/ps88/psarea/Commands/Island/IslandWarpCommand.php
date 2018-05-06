@@ -44,7 +44,7 @@
                 $sender->sendMessage("Not Registered");
                 return;
             }
-            if(! $a->Warp($sender)){
+            if (!$a->Warp($sender)) {
                 $sender->sendMessage("Cancelled by Plugin");
                 return;
             }

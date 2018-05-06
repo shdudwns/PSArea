@@ -7,10 +7,10 @@
     use ps88\psarea\Loaders\base\BaseArea;
 
     class LandBuyEvent extends Event implements Cancellable {
-        /** @var BaseArea  */
+        /** @var BaseArea */
         private $area;
 
-        /** @var Player  */
+        /** @var Player */
         private $buyer;
 
         public function __construct(BaseArea $area, Player $buyer) {

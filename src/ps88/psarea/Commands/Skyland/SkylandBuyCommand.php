@@ -60,7 +60,7 @@
                 return;
             }
             Server::getInstance()->getPluginManager()->callEvent($ev = new LandBuyEvent($a, $sender));
-            if($ev->isCancelled()){
+            if ($ev->isCancelled()) {
                 $sender->sendMessage("Cancelled by Plugin");
                 return;
             }

@@ -6,7 +6,7 @@
     use ps88\psarea\Loaders\base\BaseArea;
 
     class LandAddEvent extends Event implements Cancellable {
-        /** @var BaseArea  */
+        /** @var BaseArea */
         private $area;
 
         public function __construct(BaseArea $area) {

@@ -7,10 +7,10 @@
     use ps88\psarea\Loaders\base\BaseArea;
 
     class LandAddShareEvent extends Event implements Cancellable {
-        /** @var BaseArea  */
+        /** @var BaseArea */
         private $area;
 
-        /** @var Player  */
+        /** @var Player */
         private $share;
 
         public function __construct(BaseArea $area, Player $share) {

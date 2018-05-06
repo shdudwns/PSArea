@@ -106,7 +106,7 @@
         public function addShare(Player $pl): void {
             if ($this->getShare($pl->getName()) == \null) return;
             Server::getInstance()->getPluginManager()->callEvent($ev = new LandAddShareEvent($this, $pl));
-            if($ev->isCancelled()) return;
+            if ($ev->isCancelled()) return;
             array_push($this->shares, $pl);
         }
 
@@ -117,11 +117,11 @@
             return $this->landnum;
         }
 
-        public function Warp(Player $pl): bool{
+        public function Warp(Player $pl): bool {
             $v = $this->getMinVector();
             $v2 = $this->getMaxVector();
             Server::getInstance()->getPluginManager()->callEvent($ev = new LandWarpEvent($this, $pl));
-            if($ev->isCancelled()) return \false;
+            if ($ev->isCancelled()) return \false;
             $pl->teleport(new Position(($v->x + $v2->x) / 2, 14, ($v->y + $v2->y) / 2, Server::getInstance()->getLevelByName('island')));
             return \true;
         }

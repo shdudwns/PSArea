@@ -68,7 +68,7 @@
         public function addArea(BaseArea $area): bool {
             if ($this->getAreaById($area->getLandnum()) !== \null) return \false;
             Server::getInstance()->getPluginManager()->callEvent($ev = new LandAddEvent($area));
-            if($ev->isCancelled()) return \false;
+            if ($ev->isCancelled()) return \false;
             array_push($this->areas, $area);
             return \true;
         }

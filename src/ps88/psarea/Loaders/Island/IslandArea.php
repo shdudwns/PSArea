@@ -28,10 +28,10 @@
             return $this->center;
         }
 
-        public function Warp(Player $pl): bool{
+        public function Warp(Player $pl): bool {
             $v = $this->getCenter();
             Server::getInstance()->getPluginManager()->callEvent($ev = new LandWarpEvent($this, $pl));
-            if($ev->isCancelled()) return \false;
+            if ($ev->isCancelled()) return \false;
             $pl->teleport(new Position($v->x, 14, $v->y, Server::getInstance()->getLevelByName('island')));
             return \true;
         }
