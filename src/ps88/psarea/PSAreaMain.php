@@ -24,7 +24,7 @@
     use ps88\psarea\Loaders\Skyland\SkylandLoader;
     use ps88\psarea\MoneyTranslate\MoneyTranslator;
     use ps88\psarea\ProtectWorld\ProtectWorld;
-    use ps88\psarea\ProtectWorld\setProtectWorldCommand;
+    use ps88\psarea\Commands\ProtectWorld\setProtectWorldCommand;
     use ps88\psarea\Tasks\AreaAddTask;
 
     class PSAreaMain extends PluginBase implements Listener {

@@ -40,6 +40,10 @@
                 $sender->sendMessage("Only Player Can see this.");
                 return;
             }
+            if(! isset($args[0])){
+                $sender->sendMessage($this->getUsage());
+                return;
+            }
             $id = (int) $args[0];
             if (($a = $this->owner->islandloader->getAreaById($id)) == \null) {
                 $sender->sendMessage("Not Registered");

@@ -1,5 +1,5 @@
 <?php
-    namespace ps88\psarea\ProtectWorld;
+    namespace ps88\psarea\Commands\ProtectWorld;
 
     use pocketmine\command\Command;
     use pocketmine\command\CommandSender;
