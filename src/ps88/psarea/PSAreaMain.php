@@ -23,6 +23,7 @@
     use ps88\psarea\Loaders\Island\IslandLoader;
     use ps88\psarea\Loaders\Skyland\SkylandLoader;
     use ps88\psarea\MoneyTranslate\MoneyTranslator;
+    use ps88\psarea\ProtectWorld\ProtectWorld;
     use ps88\psarea\Tasks\AreaAddTask;
 
     class PSAreaMain extends PluginBase implements Listener {
@@ -39,19 +40,23 @@
         /** @var MoneyTranslator */
         public $moneytranslator;
 
+        /** @var ProtectWorld */
+        public $protectworld;
+
         public function onEnable() {
             $this->fieldloader = new FieldLoader();
             $this->islandloader = new IslandLoader();
             $this->skylandloader = new SkylandLoader();
+            $this->protectworld = new ProtectWorld($this);
             $this->getServer()->getPluginManager()->registerEvents($this, $this);
             $this->getServer()->getScheduler()->scheduleRepeatingTask(new AreaAddTask($this), 3);
             $this->loadLevels();
             $this->registerCommands();
-            if($this->getServer()->getPluginManager()->getPlugin('StormCore') !== \null){
+            if ($this->getServer()->getPluginManager()->getPlugin('StormCore') !== \null) {
                 $this->moneytranslator = new MoneyTranslator($this->getServer()->getPluginManager()->getPlugin('StormCore'));
-            }elseif ($this->getServer()->getPluginManager()->getPlugin('EconomyAPI') !== \null){
+            } elseif ($this->getServer()->getPluginManager()->getPlugin('EconomyAPI') !== \null) {
                 $this->moneytranslator = new MoneyTranslator($this->getServer()->getPluginManager()->getPlugin('EconomyAPI'));
-            }else{
+            } else {
                 $this->getLogger()->emergency("No Money(EconomyAPI etc..) Plugin");
                 $this->getServer()->getPluginManager()->disablePlugin($this);
             }
