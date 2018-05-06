@@ -1,8 +1,12 @@
 <?php
     namespace ps88\psarea\Loaders\base;
 
+    use pocketmine\level\Position;
     use pocketmine\math\Vector2;
     use pocketmine\Player;
+    use pocketmine\Server;
+    use ps88\psarea\Events\LandAddShareEvent;
+    use ps88\psarea\Events\LandWarpEvent;
 
     abstract class BaseArea {
         public const Island = 0;
@@ -101,6 +105,8 @@
 
         public function addShare(Player $pl): void {
             if ($this->getShare($pl->getName()) == \null) return;
+            Server::getInstance()->getPluginManager()->callEvent($ev = new LandAddShareEvent($this, $pl));
+            if($ev->isCancelled()) return;
             array_push($this->shares, $pl);
         }
 
@@ -109,5 +115,14 @@
          */
         public function getLandnum(): int {
             return $this->landnum;
+        }
+
+        public function Warp(Player $pl): bool{
+            $v = $this->getMinVector();
+            $v2 = $this->getMaxVector();
+            Server::getInstance()->getPluginManager()->callEvent($ev = new LandWarpEvent($this, $pl));
+            if($ev->isCancelled()) return \false;
+            $pl->teleport(new Position(($v->x + $v2->x) / 2, 14, ($v->y + $v2->y) / 2, Server::getInstance()->getLevelByName('island')));
+            return \true;
         }
     }

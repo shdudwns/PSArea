@@ -44,8 +44,10 @@
                 $sender->sendMessage("Not Registered");
                 return;
             }
-            $v = $a->getCenter();
-            $sender->teleport(new Position($v->x, 14, $v->y, Server::getInstance()->getLevelByName('island')));
+            if(! $a->Warp($sender)){
+                $sender->sendMessage("Cancelled by Plugin");
+                return;
+            }
             $sender->sendMessage("Warped to {$id} island");
             return;
         }

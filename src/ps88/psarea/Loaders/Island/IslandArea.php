@@ -1,8 +1,11 @@
 <?php
     namespace ps88\psarea\Loaders\Island;
 
+    use pocketmine\level\Position;
     use pocketmine\math\Vector2;
     use pocketmine\Player;
+    use pocketmine\Server;
+    use ps88\psarea\Events\LandWarpEvent;
     use ps88\psarea\Loaders\base\BaseArea;
 
     class IslandArea extends BaseArea {
@@ -23,5 +26,13 @@
          */
         public function getCenter(): Vector2 {
             return $this->center;
+        }
+
+        public function Warp(Player $pl): bool{
+            $v = $this->getCenter();
+            Server::getInstance()->getPluginManager()->callEvent($ev = new LandWarpEvent($this, $pl));
+            if($ev->isCancelled()) return \false;
+            $pl->teleport(new Position($v->x, 14, $v->y, Server::getInstance()->getLevelByName('island')));
+            return \true;
         }
     }

@@ -4,6 +4,8 @@
     use nlog\StormCore\StormPlayer;
     use pocketmine\command\Command;
     use pocketmine\command\CommandSender;
+    use pocketmine\Server;
+    use ps88\psarea\Events\LandBuyEvent;
     use ps88\psarea\Loaders\Island\IslandLoader;
     use ps88\psarea\PSAreaMain;
 
@@ -55,6 +57,11 @@
             }
             if ($sender->getMoney() < IslandLoader::Land_Price) {
                 $sender->sendMessage("You need 30000$ to buy");
+                return;
+            }
+            Server::getInstance()->getPluginManager()->callEvent($ev = new LandBuyEvent($a, $sender));
+            if($ev->isCancelled()){
+                $sender->sendMessage("Cancelled by Plugin");
                 return;
             }
             $a->setOwner($sender);
