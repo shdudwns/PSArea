@@ -79,6 +79,7 @@
                         'shares' => $s
                 ]);
             }
+            $c->save();
             return \true;
         }
 

@@ -31,17 +31,17 @@
          * @param string $commandLabel
          * @param string[] $args
          *
-         * @return mixed
+         * @return bool
          */
-        public function execute(CommandSender $sender, string $commandLabel, array $args) {
+        public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
             if (!$sender instanceof Player) {
                 $sender->sendMessage("Only Player Can see this.");
-                return;
+                return \true;
             }
             $a = (! isset($args[0])) ? $this->owner->skylandloader->getAreaByVector3($sender) : $this->owner->skylandloader->getAreaById($args[0]);
             if ($a == \null) {
                 $sender->sendMessage("Not Registered");
-                return;
+                return \true;
             }
             $sender->sendMessage("====[{$a->getLandnum()} skyland]====");
             $owner = ($a->owner == \null) ? "None" : $a->owner->getName();
@@ -54,6 +54,6 @@
                     $sender->sendMessage($share->getName());
                 }
             }
-            return;
+            return \true;
         }
     }

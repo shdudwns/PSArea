@@ -34,43 +34,43 @@
          * @param string $commandLabel
          * @param string[] $args
          *
-         * @return mixed
+         * @return bool
          */
-        public function execute(CommandSender $sender, string $commandLabel, array $args) {
+        public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
             if (!$sender instanceof Player) {
                 $sender->sendMessage("Only Player Can Buy this.");
-                return;
+                return \true;
             }
             if (!isset($args[0])) {
                 $sender->sendMessage($this->getUsage());
-                return;
+                return \true;
             }
             if (($a = $this->owner->islandloader->getAreaById($args[0])) == \null) {
                 $sender->sendMessage("Doesn't Exist");
-                return;
+                return \true;
             }
             if ($a->owner !== \null) {
                 $sender->sendMessage("Owner already Exist");
-                return;
+                return \true;
             }
             if (count($this->owner->islandloader->getAreasByOwner($sender->getName())) >= IslandLoader::Maximum_Lands) {
                 $sender->sendMessage("You already have maximum islands");
-                return;
+                return \true;
             }
             if (MoneyTranslator::getInstance()->getMoney($sender) < IslandLoader::Land_Price) {
                 $sender->sendMessage("You need 30000$ to buy");
-                return;
+                return \true;
             }
             Server::getInstance()->getPluginManager()->callEvent($ev = new LandBuyEvent($a, $sender));
             if ($ev->isCancelled()) {
                 $sender->sendMessage("Cancelled by Plugin");
-                return;
+                return \true;
             }
             $a->setOwner($sender);
             MoneyTranslator::getInstance()->reduceMoney($sender, IslandLoader::Land_Price);
             $sender->sendMessage("You bought {$args[0]} island");
             $nm = MoneyTranslator::getInstance()->getMoney($sender);
             $sender->sendMessage("Your money now : {$nm}");
-            return;
+            return \true;
         }
     }
