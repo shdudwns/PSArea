@@ -96,7 +96,8 @@
                 foreach ($value['shares'] as $share) {
                     array_push($s, Server::getInstance()->getOfflinePlayer($share));
                 }
-                $this->addArea(new SkylandArea($key, new Vector2($value['cenv'][0], $value['cenv'][1]), Server::getInstance()->getOfflinePlayer($value['owner']), $s));
+                $o = ($value['owner'] == \null)? \null : Server::getInstance()->getOfflinePlayer($value['owner']);
+                $this->addArea(new SkylandArea($key, new Vector2($value['cenv'][0], $value['cenv'][1]), $o, $s));
                 if(self::$landcount < $key) self::$landcount = $key;
             }
         }
