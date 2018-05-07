@@ -36,6 +36,10 @@
                 $sender->sendMessage("Only Player Can see this.");
                 return;
             }
+            if (!$sender->isOp ()) {
+               $sender->sendMessage ("사용권한이 없습니다.");
+               return true;
+            }
             $level = (! isset($args[0]))? $sender->getLevel(): Server::getInstance()->getLevelByName($args[0]);
             if($level == \null){
                 $sender->sendMessage("Can't find any Level");
