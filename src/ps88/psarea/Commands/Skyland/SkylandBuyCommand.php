@@ -1,7 +1,7 @@
 <?php
     namespace ps88\psarea\Commands\Skyland;
 
-    use nlog\StormCore\StormPlayer;
+    use pocketmine\Player;
     use pocketmine\command\Command;
     use pocketmine\command\CommandSender;
     use pocketmine\Server;
@@ -36,7 +36,7 @@
          * @return mixed
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args) {
-            if (!$sender instanceof StormPlayer) {
+            if (!$sender instanceof Player) {
                 $sender->sendMessage("Only Player Can Buy this.");
                 return;
             }
