@@ -35,7 +35,7 @@
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args) {
             if(!isset($args[0])){
-$sender->sendMessage("/infoisland [id]");
+$sender->sendMessage($this->getUsage());
 return true;
 }
             $a = (!isset($args[0])) ? $this->owner->islandloader->getAreaByVector3($sender) : $this->owner->islandloader->getAreaById($args[0]);
