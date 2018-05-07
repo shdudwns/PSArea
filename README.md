@@ -1,17 +1,13 @@
 # PSArea
-## =======
 >> ## English
 
 ### Instruction
-=======
 This is Land/Island/Skyland Manager.
 You can use it free. Plus, you can use PSArea API.
 
 ### Commands
-======
 
 #### For island
-=======
 + /warpisland [id]- warp to [id] island
 + /infoisland [id(or now Island)] - get info about [id] island
 + /buyisland [id] - buy [id] island
@@ -19,7 +15,6 @@ You can use it free. Plus, you can use PSArea API.
 + /giveisland [player] [id(or now island)] - GIve [id] island to [player]
 
 #### For skyland
-========
 + /warpskyland [id] - warp to [id] skyland
 + /infoskyland [id(or now Island)] - get info about [id] skyland
 + /buyskyland [id] - buy [id] skyland
@@ -27,36 +22,30 @@ You can use it free. Plus, you can use PSArea API.
 + /giveskyland [player] [id(or now island)] - give [id] skyland to [player]
 
 ### Todo
-### ======
-+ Add Field []
++ Add Field [ ]
 
 
->>## Korean(ÇÑ±¹¾î)
+>>## Korean(í•œêµ­ì–´)
 
-### ¼³¸í
-=======
-ÀÌ ÇÃ·¯±×ÀÎÀº ¼¶/¶¥ ÇÃ·¯±×ÀÎÀÔ´Ï´Ù.
-ÀÌ°ÍÀº ¹«·á·Î »ç¿ëÀÌ °¡´ÉÇÏ°í. PSAreaÀÇ APIµµ »ç¿ëÀÌ °¡´ÉÇÕ´Ï´Ù..
+### ì„¤ëª…
+ì´ í”ŒëŸ¬ê·¸ì¸ì€ ì„¬/ë•… í”ŒëŸ¬ê·¸ì¸ì…ë‹ˆë‹¤.
+ì´ê²ƒì€ ë¬´ë£Œë¡œ ì‚¬ìš©ì´ ê°€ëŠ¥í•˜ê³ . PSAreaì˜ APIë„ ì‚¬ìš©ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤..
 
-### ¸í·É¾î
-======
+### ëª…ë ¹ì–´
 
-#### ÇÏ´Ã¼¶
-=======
-+ /warpisland [id] - [id]ÀÇ ÇÏ´Ã¼¶À¸·Î ¿öÇÁÇÕ´Ï´Ù.
-+ /infoisland [id(or now Island)] - [id]ÀÇ ÇÏ´Ã¼¶ÀÇ Á¤º¸¸¦ º¸¿©Áİ´Ï´Ù.
-+ /buyisland [id] - [id]ÀÇ ÇÏ´Ã¼¶À» »ğ´Ï´Ù.
-+ /addislandshare [player] [id(or now Island)] - [player]¸¦ ÀÚ½ÅÀÇ ¼¶ÀÎ [id]ÀÇ °øÀ¯ÀÚ·Î Ãß°¡ÇÕ´Ï´Ù.
-+ /giveisland [player] [id(or now island)] - [player]¿¡°Ô ÇÏ´Ã¼¶ÀÎ [id]¸¦ Áİ´Ï´Ù.
+#### í•˜ëŠ˜ì„¬
++ /warpisland [id] - [id]ì˜ í•˜ëŠ˜ì„¬ìœ¼ë¡œ ì›Œí”„í•©ë‹ˆë‹¤.
++ /infoisland [id(or now Island)] - [id]ì˜ í•˜ëŠ˜ì„¬ì˜ ì •ë³´ë¥¼ ë³´ì—¬ì¤ë‹ˆë‹¤.
++ /buyisland [id] - [id]ì˜ í•˜ëŠ˜ì„¬ì„ ì‚½ë‹ˆë‹¤.
++ /addislandshare [player] [id(or now Island)] - [player]ë¥¼ ìì‹ ì˜ ì„¬ì¸ [id]ì˜ ê³µìœ ìë¡œ ì¶”ê°€í•©ë‹ˆë‹¤.
++ /giveisland [player] [id(or now island)] - [player]ì—ê²Œ í•˜ëŠ˜ì„¬ì¸ [id]ë¥¼ ì¤ë‹ˆë‹¤.
 
-#### ¹Ù´Ù¼¶
-========
-+ /warpskyland [id] - [id]ÀÇ ¹Ù´Ù¼¶À¸·Î ¿öÇÁÇÕ´Ï´Ù.
-+ /infoskyland [id(or now Island)] - [id]ÀÇ ¹Ù´Ù¼¶ÀÇ Á¤º¸¸¦ º¸¿©Áİ´Ï´Ù.
-+ /buyskyland [id] - [id]ÀÇ ¹Ù´Ù¼¶À» »ğ´Ï´Ù.
-+ /addskylandshare [player] [id(or now Island)] - [player]¸¦ ÀÚ½ÅÀÇ ¼¶ÀÎ [id]ÀÇ °øÀ¯ÀÚ·Î Ãß°¡ÇÕ´Ï´Ù.
-+ /giveskyland [player] [id(or now island)] - [player]¿¡°Ô ¹Ù´Ù¼¶ÀÎ [id]¸¦ Áİ´Ï´Ù.
+#### ë°”ë‹¤ì„¬
++ /warpskyland [id] - [id]ì˜ ë°”ë‹¤ì„¬ìœ¼ë¡œ ì›Œí”„í•©ë‹ˆë‹¤.
++ /infoskyland [id(or now Island)] - [id]ì˜ ë°”ë‹¤ì„¬ì˜ ì •ë³´ë¥¼ ë³´ì—¬ì¤ë‹ˆë‹¤.
++ /buyskyland [id] - [id]ì˜ ë°”ë‹¤ì„¬ì„ ì‚½ë‹ˆë‹¤.
++ /addskylandshare [player] [id(or now Island)] - [player]ë¥¼ ìì‹ ì˜ ì„¬ì¸ [id]ì˜ ê³µìœ ìë¡œ ì¶”ê°€í•©ë‹ˆë‹¤.
++ /giveskyland [player] [id(or now island)] - [player]ì—ê²Œ ë°”ë‹¤ì„¬ì¸ [id]ë¥¼ ì¤ë‹ˆë‹¤.
 
-### ÇÒÀÏ
-### ======
-+ Æò¾ß Ãß°¡ []
+### í• ì¼
++ í‰ì•¼ ì¶”ê°€ [ ]
