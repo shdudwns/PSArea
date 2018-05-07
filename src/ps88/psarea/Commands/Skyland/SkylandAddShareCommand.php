@@ -37,28 +37,28 @@
         public function execute(CommandSender $sender, string $commandLabel, array $args) {
             if (!$sender instanceof Player) {
                 $sender->sendMessage("Only Player Can see this.");
-                return;
+                return true;
             }
             $a = (!isset($args[1])) ? $this->owner->islandloader->getAreaByVector3($sender) : $this->owner->islandloader->getAreaById($args[1]);
             if ($a == \null) {
                 $sender->sendMessage("Not Registered");
-                return;
+                return true;
             }
             if ($a->owner->getName() !== $sender->getName()) {
                 $sender->sendMessage("It's not your Skyland");
-                return;
+                return true;
             }
             if (!isset($args[1])) {
                 $sender->sendMessage($this->getUsage());
-                return;
+                return true;
             }
             $pl = Server::getInstance()->getPlayer($args[0]);
             if ($pl == \null) {
                 $sender->sendMessage("Doesn't exist");
-                return;
+                return true;
             }
             $a->addShare($pl);
             $sender->sendMessage("You add {$pl->getName()} at {$args[0]} Skyland");
-            return;
+            return true;
         }
     }

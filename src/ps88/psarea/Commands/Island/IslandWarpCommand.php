@@ -38,22 +38,22 @@
         public function execute(CommandSender $sender, string $commandLabel, array $args) {
             if (!$sender instanceof Player) {
                 $sender->sendMessage("Only Player Can see this.");
-                return;
+                return true;
             }
             if(! isset($args[0])){
                 $sender->sendMessage($this->getUsage());
-                return;
+                return true;
             }
             $id = (int) $args[0];
             if (($a = $this->owner->islandloader->getAreaById($id)) == \null) {
                 $sender->sendMessage("Not Registered");
-                return;
+                return true;
             }
             if (!$a->Warp($sender)) {
                 $sender->sendMessage("Cancelled by Plugin");
-                return;
+                return true;
             }
             $sender->sendMessage("Warped to {$id} island");
-            return;
+            return true;
         }
     }

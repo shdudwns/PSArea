@@ -32,10 +32,10 @@
          * @return mixed
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args) {
-            if (!$sender instanceof Player) {
-                $sender->sendMessage("Only Player Can see this.");
-                return;
-            }
+            if(!isset($args[0])){
+$sender->sendMessage("/setprotectworld [level] [true | false]");
+return true;
+}
             if (!$sender->isOp ()) {
                $sender->sendMessage ("No Permission to do it.");
                return true;
@@ -43,10 +43,10 @@
             $level = (! isset($args[0]))? $sender->getLevel(): Server::getInstance()->getLevelByName($args[0]);
             if($level == \null){
                 $sender->sendMessage("Can't find any Level");
-                return;
+                return true;
             }
             $this->owner->protectworld->setLevelProtect($level, \true);
             $sender->sendMessage("{$level->getName()} world will be protected now");
-            return;
+            return true;
         }
     }

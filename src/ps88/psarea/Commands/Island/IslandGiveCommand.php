@@ -37,25 +37,25 @@
         public function execute(CommandSender $sender, string $commandLabel, array $args) {
             if (!$sender instanceof Player) {
                 $sender->sendMessage("Only Player Can see this.");
-                return;
+                return true;
             }
             $a = (!isset($args[1])) ? $this->owner->islandloader->getAreaByVector3($sender) : $this->owner->islandloader->getAreaById($args[1]);
             if ($a == \null) {
                 $sender->sendMessage("Not Registered");
-                return;
+                return true;
             }
             if (!isset($args[0])) {
                 $sender->sendMessage($this->getUsage());
-                return;
+                return true;
             }
             $pl = Server::getInstance()->getPlayer($args[0]);
             if ($pl == \null) {
                 $sender->sendMessage("Doesn't exist");
-                return;
+                return teue;
             }
             if (count($this->owner->islandloader->getAreasByOwner($pl->getName())) >= IslandLoader::Maximum_Lands) {
                 $sender->sendMessage("He has maximum Lands");
-                return;
+                return true;
             }
             $a->setOwner($pl);
             $sender->sendMessage("Owner Changed!!");

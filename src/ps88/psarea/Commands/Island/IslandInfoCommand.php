@@ -34,14 +34,14 @@
          * @return mixed
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args) {
-            if (!$sender instanceof Player) {
-                $sender->sendMessage("Only Player Can see this.");
-                return;
-            }
+            if(!isset($args[0])){
+$sender->sendMessage("/infoisland [id]");
+return true;
+}
             $a = (!isset($args[0])) ? $this->owner->islandloader->getAreaByVector3($sender) : $this->owner->islandloader->getAreaById($args[0]);
             if ($a == \null) {
                 $sender->sendMessage("Not Registered");
-                return;
+                return true;
             }
             $sender->sendMessage("====[{$args[0]} island]====");
             $owner = ($a->owner == \null) ? "None" : $a->owner->getName();
@@ -54,6 +54,6 @@
                     $sender->sendMessage($share->getName());
                 }
             }
-            return;
+            return true;
         }
     }

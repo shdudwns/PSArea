@@ -38,38 +38,38 @@
         public function execute(CommandSender $sender, string $commandLabel, array $args) {
             if (!$sender instanceof Player) {
                 $sender->sendMessage("Only Player Can Buy this.");
-                return;
+                return true;
             }
             if (!isset($args[0])) {
                 $sender->sendMessage($this->getUsage());
-                return;
+                return true;
             }
             if (($a = $this->owner->skylandloader->getAreaById($args[0])) == \null) {
                 $sender->sendMessage("Doesn't Exist");
-                return;
+                return true;
             }
             if ($a->owner !== \null) {
                 $sender->sendMessage("Owner already Exist");
-                return;
+                return true;
             }
             if (count($this->owner->skylandloader->getAreasByOwner($sender->getName())) >= SkylandLoader::Maximum_Lands) {
                 $sender->sendMessage("You already have maximum Skylands");
-                return;
+                return true;
             }
             if (MoneyTranslator::getInstance()->getMoney($sender) < SkylandLoader::Land_Price) {
                 $sender->sendMessage("You need 30000$ to buy");
-                return;
+                return true;
             }
             Server::getInstance()->getPluginManager()->callEvent($ev = new LandBuyEvent($a, $sender));
             if ($ev->isCancelled()) {
                 $sender->sendMessage("Cancelled by Plugin");
-                return;
+                return true;
             }
             $a->setOwner($sender);
             MoneyTranslator::getInstance()->reduceMoney($sender, SkylandLoader::Land_Price);
             $sender->sendMessage("You bought {$args[0]} skyland");
             $nm = MoneyTranslator::getInstance()->getMoney($sender);
             $sender->sendMessage("Your money now : {$nm}");
-            return;
+            return true;
         }
     }
