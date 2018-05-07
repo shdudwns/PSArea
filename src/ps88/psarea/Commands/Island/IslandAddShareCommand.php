@@ -15,7 +15,7 @@
         private $owner;
 
         /**
-         * IslandAddShareCommand constructor.
+         * FieldAddShareCommand constructor.
          * @param string $name
          * @param PSAreaMain $owner
          * @param string $description

@@ -22,7 +22,7 @@
          * @param string|null $usageMessage
          * @param array $aliases
          */
-        public function __construct(PSAreaMain $owner, string $name = "giveland", string $description = "Give Land to other Player", string $usageMessage = "/givelandshare [player] [id]", $aliases = ['Player', 'Id']) {
+        public function __construct(PSAreaMain $owner, string $name = "giveland", string $description = "Give Land to other Player", string $usageMessage = "/giveland [player] [id]", $aliases = ['Player', 'Id']) {
             parent::__construct($name, $description, $usageMessage, $aliases);
             $this->owner = $owner;
         }
