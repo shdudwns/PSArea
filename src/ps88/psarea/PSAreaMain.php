@@ -20,6 +20,7 @@
     };
     use ps88\psarea\Loaders\base\BaseLoader;
     use ps88\psarea\Loaders\Field\FieldLoader;
+    use ps88\psarea\Loaders\Land\LandLoader;
     use ps88\psarea\Loaders\Island\IslandLoader;
     use ps88\psarea\Loaders\Skyland\SkylandLoader;
     use ps88\psarea\MoneyTranslate\MoneyTranslator;
@@ -38,6 +39,9 @@
         /** @var SkylandLoader */
         public $skylandloader;
 
+        /** @var LandLoader */
+        public $landloader;
+
         /** @var MoneyTranslator */
         public $moneytranslator;
 
@@ -48,6 +52,7 @@
             $this->fieldloader = new FieldLoader();
             $this->islandloader = new IslandLoader();
             $this->skylandloader = new SkylandLoader();
+            $this->landloader = new LandLoader();
             $this->protectworld = new ProtectWorld($this);
             $this->getServer()->getPluginManager()->registerEvents($this, $this);
             $this->getServer()->getScheduler()->scheduleRepeatingTask(new AreaAddTask($this), 3);
@@ -67,6 +72,7 @@
             $this->islandloader->saveAll();
             $this->skylandloader->saveAll();
             $this->fieldloader->saveAll();
+            $this->landloader->saveAll();
         }
 
         public function loadLevels(): void {
@@ -74,7 +80,8 @@
             $loaders = [
                     $this->fieldloader,
                     $this->skylandloader,
-                    $this->islandloader
+                    $this->islandloader,
+                $this->landloader
             ];
             foreach ($loaders as $item) {
                 $item->loadLevel();
