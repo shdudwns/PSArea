@@ -1,7 +1,7 @@
 <?php
     namespace ps88\psarea\Commands\Skyland;
 
-    use nlog\StormCore\StormPlayer;
+    use pocketmine\Player;
     use pocketmine\command\Command;
     use pocketmine\command\CommandSender;
     use pocketmine\Server;
