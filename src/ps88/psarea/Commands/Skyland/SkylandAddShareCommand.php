@@ -39,8 +39,8 @@
                 $sender->sendMessage("Only Player Can see this.");
                 return;
             }
-            $id = (!isset($args[0])) ? $this->owner->skylandloader->getAreaByVector3($sender) : (int) $args[1];
-            if (($a = $this->owner->skylandloader->getAreaById($id)) == \null) {
+            $a = (!isset($args[1])) ? $this->owner->islandloader->getAreaByVector3($sender) : $this->owner->islandloader->getAreaById($args[1]);
+            if ($a == \null) {
                 $sender->sendMessage("Not Registered");
                 return;
             }
@@ -58,7 +58,7 @@
                 return;
             }
             $a->addShare($pl);
-            $sender->sendMessage("You add {$pl->getName()} at {$id} Skyland");
+            $sender->sendMessage("You add {$pl->getName()} at {$args[0]} Skyland");
             return;
         }
     }

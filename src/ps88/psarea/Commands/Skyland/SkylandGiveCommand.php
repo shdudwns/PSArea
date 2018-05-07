@@ -39,8 +39,8 @@
                 $sender->sendMessage("Only Player Can see this.");
                 return;
             }
-            $id = (!isset($args[0])) ? $this->owner->skylandloader->getAreaByVector3($sender) : (int) $args[1];
-            if (($a = $this->owner->skylandloader->getAreaById($id)) == \null) {
+            $a = (!isset($args[1])) ? $this->owner->skylandloader->getAreaByVector3($sender) : $this->owner->skylandloader->getAreaById($args[1]);
+            if ($a == \null) {
                 $sender->sendMessage("Not Registered");
                 return;
             }
@@ -59,6 +59,6 @@
             }
             $a->setOwner($pl);
             $sender->sendMessage("Owner Changed!!");
-            $pl->sendMessage("You got {$id} by {$sender->getName()}");
+            $pl->sendMessage("You got {$args[1]} by {$sender->getName()}");
         }
     }
