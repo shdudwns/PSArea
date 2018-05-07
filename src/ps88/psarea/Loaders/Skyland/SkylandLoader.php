@@ -84,11 +84,11 @@
         }
 
         public function loadLevel(): void {
-            Generator::addGenerator(SKylandGenerator::class, 'skyland');
+            Generator::addGenerator(SkylandGenerator::class, 'skyland');
             $g = Generator::getGenerator("skyland");
-            if (!Server::getInstance()->loadLevel("island")) {
+            if (!Server::getInstance()->loadLevel("skyland")) {
                 @mkdir(Server::getInstance()->getDataPath() . "/" . "worlds" . "/" . "skyland");
-                Server::getInstance()->generateLevel("island", \null, $g, []);
+                Server::getInstance()->generateLevel("skyland", \null, $g, []);
             }
             $c = new Config(Server::getInstance()->getDataPath() . "/" . "worlds" . "/" . "skyland" . "/" . "data.json" , Config::JSON);
             foreach ($c->getAll() as $key => $value){
