@@ -35,7 +35,7 @@
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args) {
             if(!isset($args[0])){
-$sender->sendMessage("/infoskyland [id]");
+$sender->sendMessage($this->getUsage());
 return true;
 }
             $a = (!isset($args[0])) ? $this->owner->skylandloader->getAreaByVector3($sender) : $this->owner->skylandloader->getAreaById($args[0]);
