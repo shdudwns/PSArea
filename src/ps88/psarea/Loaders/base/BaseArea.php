@@ -106,10 +106,23 @@
         }
 
         public function addShare(IPlayer $pl): void {
-            if ($this->getShare($pl->getName()) == \null) return;
+            if ($this->getShare($pl->getName()) !== \null) return;
             Server::getInstance()->getPluginManager()->callEvent($ev = new LandAddShareEvent($this, $pl));
             if ($ev->isCancelled()) return;
             array_push($this->shares, $pl);
+        }
+
+        public function delShare(IPlayer $pl): void {
+            if ($this->getShare($pl->getName()) == \null) return;
+            for($i = 0; $i >= count($this->getShares()); $i++){
+                $share = $this->shares[$i];
+                if($share->getName() == $pl->getName()){
+                    unset($this->shares[$i]);
+                    return;
+                }
+            }
+         //   Server::getInstance()->getPluginManager()->callEvent($ev = new LandAddShareEvent($this, $pl));
+         //   if ($ev->isCancelled()) return; TODO need to add LandDelShareEvent class
         }
 
         /**
