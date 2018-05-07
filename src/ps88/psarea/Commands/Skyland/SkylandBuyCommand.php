@@ -36,7 +36,7 @@
          * @return mixed
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args) {
-            if (!$sender instanceof StormPlayer) {
+            if (!$sender instanceof Player) {
                 $sender->sendMessage("Only Player Can Buy this.");
                 return;
             }
