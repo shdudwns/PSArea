@@ -13,6 +13,7 @@
         public const Island = 0;
         public const Field = 1;
         public const Skyland = 2;
+        public const Land = 3;
 
         /** @var int */
         public const LandType = -1;

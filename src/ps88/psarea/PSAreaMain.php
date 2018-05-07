@@ -3,23 +3,30 @@
 
 
     use pocketmine\{
-            event\Listener, level\generator\Generator, level\generator\normal\Normal, plugin\PluginBase
+            event\Listener,
+            event\player\PlayerInteractEvent,
+            plugin\PluginBase
     };
     use ps88\psarea\Commands\Island\IslandAddShareCommand;
     use ps88\psarea\Commands\Island\IslandBuyCommand;
     use ps88\psarea\Commands\Island\IslandGiveCommand;
     use ps88\psarea\Commands\Island\IslandInfoCommand;
     use ps88\psarea\Commands\Island\IslandWarpCommand;
+    use ps88\psarea\Commands\Land\LandAddShareCommand;
+    use ps88\psarea\Commands\Land\LandBuyCommand;
+    use ps88\psarea\Commands\Land\LandGiveCommand;
+    use ps88\psarea\Commands\Land\LandInfoCommand;
+    use ps88\psarea\Commands\Land\LandMakeCommand;
+    use ps88\psarea\Commands\Land\LandWarpCommand;
     use ps88\psarea\Commands\Skyland\SkylandAddShareCommand;
     use ps88\psarea\Commands\Skyland\SkylandBuyCommand;
     use ps88\psarea\Commands\Skyland\SkylandGiveCommand;
     use ps88\psarea\Commands\Skyland\SkylandInfoCommand;
     use ps88\psarea\Commands\Skyland\SkylandWarpCommand;
-    use ps88\psarea\Generator\{
-            IslandGenerator, FieldGenerator, SkylandGenerator
-    };
     use ps88\psarea\Loaders\base\BaseLoader;
     use ps88\psarea\Loaders\Field\FieldLoader;
+    use ps88\psarea\Loaders\Land\LandListener;
+    use ps88\psarea\Loaders\Land\LandLoader;
     use ps88\psarea\Loaders\Island\IslandLoader;
     use ps88\psarea\Loaders\Skyland\SkylandLoader;
     use ps88\psarea\MoneyTranslate\MoneyTranslator;
@@ -38,6 +45,9 @@
         /** @var SkylandLoader */
         public $skylandloader;
 
+        /** @var LandLoader */
+        public $landloader;
+
         /** @var MoneyTranslator */
         public $moneytranslator;
 
@@ -48,8 +58,10 @@
             $this->fieldloader = new FieldLoader();
             $this->islandloader = new IslandLoader();
             $this->skylandloader = new SkylandLoader();
+            $this->landloader = new LandLoader();
             $this->protectworld = new ProtectWorld($this);
             $this->getServer()->getPluginManager()->registerEvents($this, $this);
+            $this->getServer()->getPluginManager()->registerEvents(new LandListener($this), $this);
             $this->getServer()->getScheduler()->scheduleRepeatingTask(new AreaAddTask($this), 3);
             $this->loadLevels();
             $this->registerCommands();
@@ -67,6 +79,7 @@
             $this->islandloader->saveAll();
             $this->skylandloader->saveAll();
             $this->fieldloader->saveAll();
+            $this->landloader->saveAll();
         }
 
         public function loadLevels(): void {
@@ -74,7 +87,8 @@
             $loaders = [
                     $this->fieldloader,
                     $this->skylandloader,
-                    $this->islandloader
+                    $this->islandloader,
+                    $this->landloader
             ];
             foreach ($loaders as $item) {
                 $item->loadLevel();
@@ -93,7 +107,13 @@
                     new SkylandGiveCommand($this),
                     new SkylandInfoCommand($this),
                     new SkylandWarpCommand($this),
-                    new setProtectWorldCommand($this)
+                    new setProtectWorldCommand($this),
+                    new LandAddShareCommand($this),
+                    new LandBuyCommand($this),
+                    new LandGiveCommand($this),
+                    new LandWarpCommand($this),
+                    new LandInfoCommand($this),
+                    new LandMakeCommand($this)
             ]);
         }
 
