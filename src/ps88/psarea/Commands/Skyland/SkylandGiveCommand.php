@@ -59,6 +59,6 @@
             }
             $a->setOwner($pl);
             $sender->sendMessage("Owner Changed!!");
-            $pl->sendMessage("You got {$args[1]} by {$sender->getName()}");
+            $pl->sendMessage("You got {$a->getLandnum()} by {$sender->getName()}");
         }
     }

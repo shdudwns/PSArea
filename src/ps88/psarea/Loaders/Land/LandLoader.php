@@ -90,7 +90,6 @@
         }
 
         public function loadLevel(): void {
-            //No Level
             @mkdir(Server::getInstance()->getDataPath() . "/" . "NormalLand");
             $c = new Config(Server::getInstance()->getDataPath() . "/" . "NormalLand" . "/" . "data.json", Config::JSON);
             foreach ($c->getAll() as $key => $value) {

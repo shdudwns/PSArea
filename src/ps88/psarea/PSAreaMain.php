@@ -10,11 +10,18 @@
     use ps88\psarea\Commands\Island\IslandGiveCommand;
     use ps88\psarea\Commands\Island\IslandInfoCommand;
     use ps88\psarea\Commands\Island\IslandWarpCommand;
+    use ps88\psarea\Commands\Land\LandAddShareCommand;
+    use ps88\psarea\Commands\Land\LandBuyCommand;
+    use ps88\psarea\Commands\Land\LandGiveCommand;
+    use ps88\psarea\Commands\Land\LandInfoCommand;
+    use ps88\psarea\Commands\Land\LandWarpCommand;
     use ps88\psarea\Commands\Skyland\SkylandAddShareCommand;
     use ps88\psarea\Commands\Skyland\SkylandBuyCommand;
     use ps88\psarea\Commands\Skyland\SkylandGiveCommand;
     use ps88\psarea\Commands\Skyland\SkylandInfoCommand;
     use ps88\psarea\Commands\Skyland\SkylandWarpCommand;
+    use ps88\psarea\Events\LandAddShareEvent;
+    use ps88\psarea\Events\LandBuyEvent;
     use ps88\psarea\Generator\{
             IslandGenerator, FieldGenerator, SkylandGenerator
     };
@@ -100,7 +107,12 @@
                     new SkylandGiveCommand($this),
                     new SkylandInfoCommand($this),
                     new SkylandWarpCommand($this),
-                    new setProtectWorldCommand($this)
+                    new setProtectWorldCommand($this),
+                new LandAddShareCommand($this),
+                new LandBuyCommand($this),
+                new LandGiveCommand($this),
+                new LandWarpCommand($this),
+                new LandInfoCommand($this)
             ]);
         }
 
