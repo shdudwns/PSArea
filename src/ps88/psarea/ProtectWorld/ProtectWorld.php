@@ -22,7 +22,7 @@
         }
 
         public function isLevelProtected(Level $level): bool {
-            if (!isset($this->levels[$level->getId()])) return \false;
+            if (!isset($this->levels[$level->getId()])) return \true;
             return $this->levels[$level->getId()];
         }
 

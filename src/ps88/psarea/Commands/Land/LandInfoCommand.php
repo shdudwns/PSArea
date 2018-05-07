@@ -54,6 +54,10 @@
                     $sender->sendMessage($share->getName());
                 }
             }
+            $sender->sendMessage("===[Pos]===");
+            $sender->sendMessage("x : {$a->getMinVector()->x} ~ {$a->getMaxVector()->x}");
+            $sender->sendMessage("z : {$a->getMinVector()->y} ~ {$a->getMaxVector()->y}");
+            $sender->sendMessage("Level : {$a->getLevel()->getName()}");
             return \true;
         }
     }
