@@ -39,8 +39,8 @@
                 $sender->sendMessage("Only Player Can see this.");
                 return;
             }
-            $id = (!isset($args[0])) ? $this->owner->islandloader->getAreaByVector3($sender) : (int) $args[1];
-            if (($a = $this->owner->islandloader->getAreaById($id)) == \null) {
+            $a = (!isset($args[1])) ? $this->owner->islandloader->getAreaByVector3($sender) : $this->owner->islandloader->getAreaById($args[1]);
+            if ($a == \null) {
                 $sender->sendMessage("Not Registered");
                 return;
             }

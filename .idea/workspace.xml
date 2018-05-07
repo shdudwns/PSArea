@@ -3,14 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="96e2ee3e-cb7a-4137-b6c8-680220623133" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandWarpCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandWarpCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ps88/psarea/Commands/ProtectWorld/setProtectWorldCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ps88/psarea/Commands/ProtectWorld/setProtectWorldCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandWarpCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandWarpCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ps88/psarea/Loaders/Island/IslandArea.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ps88/psarea/Loaders/Island/IslandArea.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ps88/psarea/Loaders/Skyland/SkylandArea.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ps88/psarea/Loaders/Skyland/SkylandArea.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ps88/psarea/PSAreaMain.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ps88/psarea/PSAreaMain.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ps88/psarea/ProtectWorld/ProtectWorldListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ps88/psarea/ProtectWorld/ProtectWorldListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandGiveCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandGiveCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandInfoCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandInfoCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandAddShareCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandAddShareCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandGiveCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandGiveCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandInfoCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandInfoCommand.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,51 +18,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="setProtectWorldCommand.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/ProtectWorld/setProtectWorldCommand.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="34" selection-end-line="47" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PSAreaMain.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/PSAreaMain.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
-              <folding>
-                <element signature="e#39#166#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProtectWorld.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/ProtectWorld/ProtectWorld.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-              <folding>
-                <element signature="e#51#78#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IslandWarpCommand.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandWarpCommand.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="45" selection-end-column="13" />
-              <folding>
-                <element signature="e#54#85#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SkylandWarpCommand.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandWarpCommand.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -75,10 +27,37 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SkylandGiveCommand.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandGiveCommand.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="762">
+              <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SkylandBuyCommand.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandBuyCommand.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="705">
+              <caret line="69" column="59" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SkylandAddShareCommand.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandAddShareCommand.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="743">
+              <caret line="60" column="70" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ProtectWorldListener.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ps88/psarea/ProtectWorld/ProtectWorldListener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
+            <state relative-caret-position="703">
               <caret line="40" column="86" selection-start-line="40" selection-start-column="86" selection-end-line="40" selection-end-column="86" />
               <folding>
                 <element signature="e#51#94#0#PHP" expanded="true" />
@@ -87,47 +66,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plugin.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="plugin.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plugin.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+            <state relative-caret-position="95">
+              <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IslandArea.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Loaders/Island/IslandArea.php">
+      <file leaf-file-name="IslandInfoCommand.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandInfoCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="35" selection-end-column="104" />
+            <state relative-caret-position="757">
+              <caret line="56" column="19" lean-forward="true" selection-start-line="40" selection-start-column="12" selection-end-line="56" selection-end-column="19" />
               <folding>
-                <element signature="e#53#83#0#PHP" expanded="true" />
+                <element signature="e#54#85#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SkylandArea.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Loaders/Skyland/SkylandArea.php">
+      <file leaf-file-name="IslandBuyCommand.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandBuyCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+            <state relative-caret-position="871">
+              <caret line="73" column="19" lean-forward="true" selection-start-line="59" selection-start-column="12" selection-end-line="73" selection-end-column="19" />
               <folding>
-                <element signature="e#54#84#0#PHP" expanded="true" />
+                <element signature="e#54#85#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SkylandLoader.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Loaders/Skyland/SkylandLoader.php">
+      <file leaf-file-name="IslandGiveCommand.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandGiveCommand.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="437">
+              <caret line="41" column="141" selection-start-line="41" selection-start-column="141" selection-end-line="41" selection-end-column="141" />
               <folding>
-                <element signature="e#54#95#0#PHP" expanded="true" />
+                <element signature="e#54#85#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SkylandInfoCommand.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandInfoCommand.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="553">
+              <caret line="45" column="53" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -195,13 +183,8 @@
         <option value="$PROJECT_DIR$/src/ps88/psarea/Loaders/Island/IslandLoader.php" />
         <option value="$PROJECT_DIR$/src/ps88/psarea/Loaders/base/BaseArea.php" />
         <option value="$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandAddShareCommand.php" />
-        <option value="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandAddShareCommand.php" />
         <option value="$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandBuyCommand.php" />
         <option value="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandBuyCommand.php" />
-        <option value="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandGiveCommand.php" />
-        <option value="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandInfoCommand.php" />
-        <option value="$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandGiveCommand.php" />
-        <option value="$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandInfoCommand.php" />
         <option value="$PROJECT_DIR$/src/ps88/psarea/MoneyTranslate/MoneyTranslator.php" />
         <option value="$PROJECT_DIR$/src/ps88/psarea/Loaders/ProtectWorld/ProtectWorldLoader.php" />
         <option value="$PROJECT_DIR$/src/ps88/psarea/ProtectWorld/ProtectWorld.php" />
@@ -214,6 +197,11 @@
         <option value="$PROJECT_DIR$/src/ps88/psarea/Loaders/Skyland/SkylandArea.php" />
         <option value="$PROJECT_DIR$/src/ps88/psarea/ProtectWorld/ProtectWorldListener.php" />
         <option value="$PROJECT_DIR$/plugin.yml" />
+        <option value="$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandInfoCommand.php" />
+        <option value="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandInfoCommand.php" />
+        <option value="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandGiveCommand.php" />
+        <option value="$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandAddShareCommand.php" />
+        <option value="$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandGiveCommand.php" />
       </list>
     </option>
   </component>
@@ -247,6 +235,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -296,73 +285,12 @@
               <item name="ps88" type="462c0819:PsiDirectoryNode" />
               <item name="psarea" type="462c0819:PsiDirectoryNode" />
               <item name="Commands" type="462c0819:PsiDirectoryNode" />
-              <item name="ProtectWorld" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PSArea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PSArea" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ps88" type="462c0819:PsiDirectoryNode" />
-              <item name="psarea" type="462c0819:PsiDirectoryNode" />
-              <item name="Commands" type="462c0819:PsiDirectoryNode" />
               <item name="Skyland" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PSArea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PSArea" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ps88" type="462c0819:PsiDirectoryNode" />
-              <item name="psarea" type="462c0819:PsiDirectoryNode" />
-              <item name="Events" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PSArea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PSArea" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ps88" type="462c0819:PsiDirectoryNode" />
-              <item name="psarea" type="462c0819:PsiDirectoryNode" />
-              <item name="Loaders" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PSArea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PSArea" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ps88" type="462c0819:PsiDirectoryNode" />
-              <item name="psarea" type="462c0819:PsiDirectoryNode" />
-              <item name="Loaders" type="462c0819:PsiDirectoryNode" />
-              <item name="Field" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PSArea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PSArea" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ps88" type="462c0819:PsiDirectoryNode" />
-              <item name="psarea" type="462c0819:PsiDirectoryNode" />
-              <item name="Loaders" type="462c0819:PsiDirectoryNode" />
-              <item name="Island" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PSArea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PSArea" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ps88" type="462c0819:PsiDirectoryNode" />
-              <item name="psarea" type="462c0819:PsiDirectoryNode" />
-              <item name="Loaders" type="462c0819:PsiDirectoryNode" />
-              <item name="Skyland" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PSArea" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PSArea" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ps88" type="462c0819:PsiDirectoryNode" />
-              <item name="psarea" type="462c0819:PsiDirectoryNode" />
-              <item name="ProtectWorld" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -416,18 +344,19 @@
       <workItem from="1525597071556" duration="8144000" />
       <workItem from="1525607469046" duration="3498000" />
       <workItem from="1525612223776" duration="4473000" />
-      <workItem from="1525618054346" duration="950000" />
+      <workItem from="1525618054346" duration="1138000" />
+      <workItem from="1525656634579" duration="295000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29731000" />
+    <option name="totallyTimeSpent" value="30214000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1578125" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21041666" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -441,11 +370,11 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287234" />
+      <window_info anchor="bottom" id="Message" order="0" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -597,9 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-459">
           <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-          <folding>
-            <element signature="e#52#93#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -642,9 +568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="703">
           <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
-          <folding>
-            <element signature="e#45#78#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -652,9 +575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" column="23" selection-end-line="40" selection-end-column="5" />
-          <folding>
-            <element signature="e#45#78#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -662,9 +582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding>
-            <element signature="e#45#78#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -672,54 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="51" column="40" lean-forward="true" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandAddShareCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="55" column="31" lean-forward="true" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandBuyCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="871">
-          <caret line="73" column="19" lean-forward="true" selection-start-line="59" selection-start-column="12" selection-end-line="73" selection-end-column="19" />
-          <folding>
-            <element signature="e#54#85#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandGiveCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="37" column="40" lean-forward="true" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandInfoCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="36" column="37" lean-forward="true" selection-start-line="36" selection-start-column="37" selection-end-line="36" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandInfoCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-          <folding>
-            <element signature="e#54#85#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandBuyCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="69" column="59" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -738,19 +607,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1463">
           <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
-          <folding>
-            <element signature="e#51#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandGiveCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
-          <folding>
-            <element signature="e#54#85#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -811,16 +667,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandWarpCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ps88/psarea/ProtectWorld/ProtectWorld.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
+        <state relative-caret-position="323">
           <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
           <folding>
             <element signature="e#51#78#0#PHP" expanded="true" />
@@ -830,7 +679,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Loaders/Island/IslandArea.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
+        <state relative-caret-position="551">
           <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="35" selection-end-column="104" />
           <folding>
             <element signature="e#53#83#0#PHP" expanded="true" />
@@ -840,7 +689,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Loaders/Skyland/SkylandArea.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
+        <state relative-caret-position="532">
           <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
           <folding>
             <element signature="e#54#84#0#PHP" expanded="true" />
@@ -850,7 +699,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ps88/psarea/ProtectWorld/ProtectWorldListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
+        <state relative-caret-position="703">
           <caret line="40" column="86" selection-start-line="40" selection-start-column="86" selection-end-line="40" selection-end-column="86" />
           <folding>
             <element signature="e#51#94#0#PHP" expanded="true" />
@@ -860,8 +709,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plugin.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        <state relative-caret-position="95">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandWarpCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandBuyCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="69" column="59" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandInfoCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="45" column="53" selection-start-line="45" selection-start-column="53" selection-end-line="45" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandGiveCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="762">
+          <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Skyland/SkylandAddShareCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="743">
+          <caret line="60" column="70" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandInfoCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="757">
+          <caret line="56" column="19" lean-forward="true" selection-start-line="40" selection-start-column="12" selection-end-line="56" selection-end-column="19" />
+          <folding>
+            <element signature="e#54#85#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandBuyCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="871">
+          <caret line="73" column="19" lean-forward="true" selection-start-line="59" selection-start-column="12" selection-end-line="73" selection-end-column="19" />
+          <folding>
+            <element signature="e#54#85#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Commands/Island/IslandGiveCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="41" column="141" selection-start-line="41" selection-start-column="141" selection-end-line="41" selection-end-column="141" />
+          <folding>
+            <element signature="e#54#85#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
