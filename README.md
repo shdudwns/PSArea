@@ -1,16 +1,16 @@
 # PSArea
-##=======
+## =======
 >> ## English
 
-###Instruction
+### Instruction
 =======
 This is Land/Island/Skyland Manager.
 You can use it free. Plus, you can use PSArea API.
 
-###Commands
+### Commands
 ======
 
-####For island
+#### For island
 =======
 + /warpisland [id]- warp to [id] island
 + /infoisland [id(or now Island)] - get info about [id] island
@@ -18,7 +18,7 @@ You can use it free. Plus, you can use PSArea API.
 + /addislandshare [player] [id(or now Island)] - add share player at [id] island
 + /giveisland [player] [id(or now island)] - GIve [id] island to [player]
 
-####For skyland
+#### For skyland
 ========
 + /warpskyland [id] - warp to [id] skyland
 + /infoskyland [id(or now Island)] - get info about [id] skyland
@@ -26,19 +26,19 @@ You can use it free. Plus, you can use PSArea API.
 + /addskylandshare [player] [id(or now Island)] - add share player at [id] skyland
 + /giveskyland [player] [id(or now island)] - give [id] skyland to [player]
 
-###Todo
-###======
+### Todo
+### ======
 + Add Field []
 
 
->>##Korean(한국어)
+>>## Korean(한국어)
 
-###설명
+### 설명
 =======
 이 플러그인은 섬/땅 플러그인입니다.
 이것은 무료로 사용이 가능하고. PSArea의 API도 사용이 가능합니다..
 
-###명령어
+### 명령어
 ======
 
 #### 하늘섬
@@ -57,6 +57,6 @@ You can use it free. Plus, you can use PSArea API.
 + /addskylandshare [player] [id(or now Island)] - [player]를 자신의 섬인 [id]의 공유자로 추가합니다.
 + /giveskyland [player] [id(or now island)] - [player]에게 바다섬인 [id]를 줍니다.
 
-###할일
-###======
+### 할일
+### ======
 + 평야 추가 []
