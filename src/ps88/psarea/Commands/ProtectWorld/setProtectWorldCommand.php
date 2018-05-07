@@ -19,7 +19,7 @@
          * @param string|null $usageMessage
          * @param array $aliases
          */
-        public function __construct(PSAreaMain $owner, string $name = "setprotectworld", string $description = "Set Protected World", string $usageMessage = "/setprotectworld [level] [isProtect(true)]", $aliases = ['level', 'isProtect']) {
+        public function __construct(PSAreaMain $owner, string $name = "setprotectworld", string $description = "Set Protected World", string $usageMessage = "/setprotectworld [level] [isProtect(true), (false)]", $aliases = ['level', 'isProtect']) {
             parent::__construct($name, $description, $usageMessage, $aliases);
             $this->owner = $owner;
         }
@@ -33,7 +33,7 @@
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args) {
             if(!isset($args[0])){
-$sender->sendMessage("/setprotectworld [level] [true | false]");
+$sender->sendMessage($this->getUsage());
 return true;
 }
             if (!$sender->isOp ()) {
