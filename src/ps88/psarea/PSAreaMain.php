@@ -88,7 +88,7 @@
                     $this->fieldloader,
                     $this->skylandloader,
                     $this->islandloader,
-                $this->landloader
+                    $this->landloader
             ];
             foreach ($loaders as $item) {
                 $item->loadLevel();
@@ -108,11 +108,11 @@
                     new SkylandInfoCommand($this),
                     new SkylandWarpCommand($this),
                     new setProtectWorldCommand($this),
-                new LandAddShareCommand($this),
-                new LandBuyCommand($this),
-                new LandGiveCommand($this),
-                new LandWarpCommand($this),
-                new LandInfoCommand($this)
+                    new LandAddShareCommand($this),
+                    new LandBuyCommand($this),
+                    new LandGiveCommand($this),
+                    new LandWarpCommand($this),
+                    new LandInfoCommand($this)
             ]);
         }
 

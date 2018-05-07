@@ -44,7 +44,7 @@
                 $sender->sendMessage("Not Registered");
                 return \true;
             }
-            if ($a->owner == \null){
+            if ($a->owner == \null) {
                 $sender->sendMessage("It's not your land");
                 return \true;
             }

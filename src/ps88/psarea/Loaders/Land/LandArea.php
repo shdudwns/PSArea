@@ -9,7 +9,7 @@
     class LandArea extends BaseArea {
         public const LandType = self::Land;
 
-        /** @var Level  */
+        /** @var Level */
         private $level;
 
         public function __construct(int $landnum, Level $level, Vector2 $minvec, Vector2 $maxvec, ?IPlayer $owner = \null, array $shares = []) {
