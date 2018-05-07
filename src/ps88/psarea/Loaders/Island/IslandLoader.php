@@ -2,8 +2,10 @@
     namespace ps88\psarea\Loaders\Island;
 
     use pocketmine\level\generator\Generator;
+    use pocketmine\math\Vector2;
     use pocketmine\math\Vector3;
     use pocketmine\Server;
+    use pocketmine\utils\Config;
     use ps88\psarea\Generator\IslandGenerator;
     use ps88\psarea\Loaders\base\BaseArea;
     use ps88\psarea\Loaders\base\BaseLoader;
@@ -66,7 +68,21 @@
          * @return bool
          */
         public function saveAll(): bool {
-            return \false;
+            $c = new Config(Server::getInstance()->getDataPath() . "/" . "worlds" . "/" . "island" . "/" . "data.json" , Config::JSON);
+            $c->setAll([]);
+            foreach ($this->getAreas() as $area){
+                $o = ($area->owner == \null)? \null : $area->owner->getName();
+                $s = [];
+                foreach ($area->getShares() as $share) {
+                    array_push($s, $share->getName());
+                }
+                $c->set($area->getLandnum(), [
+                        'cenv' => [$area->getCenter()->x, $area->getCenter()->y],
+                    'owner' => $o,
+                    'shares' => $s
+                ]);
+            }
+            return \true;
         }
 
         public function loadLevel(): void {
@@ -75,6 +91,15 @@
             if (!Server::getInstance()->loadLevel("island")) {
                 @mkdir(Server::getInstance()->getDataPath() . "/" . "worlds" . "/" . "island");
                 Server::getInstance()->generateLevel("island", \null, $g, []);
+            }
+            $c = new Config(Server::getInstance()->getDataPath() . "/" . "worlds" . "/" . "island" . "/" . "data.json" , Config::JSON);
+            foreach ($c->getAll() as $key => $value){
+                $s = [];
+                foreach ($value['shares'] as $share) {
+                    array_push($s, Server::getInstance()->getOfflinePlayer($share));
+                }
+                $this->addArea(new IslandArea($key, new Vector2($value['cenv'][0], $value['cenv'][1]), Server::getInstance()->getOfflinePlayer($value['owner']), $s));
+                if(self::$landcount < $key) self::$landcount = $key;
             }
         }
     }

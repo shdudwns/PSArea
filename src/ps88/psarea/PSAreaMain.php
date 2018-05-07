@@ -63,6 +63,12 @@
             }
         }
 
+        public function onDisable() {
+            $this->islandloader->saveAll();
+            $this->skylandloader->saveAll();
+            $this->fieldloader->saveAll();
+        }
+
         public function loadLevels(): void {
             /** @var BaseLoader[] $loaders */
             $loaders = [

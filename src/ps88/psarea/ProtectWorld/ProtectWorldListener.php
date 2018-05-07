@@ -23,9 +23,11 @@
                 return;
             }
             if ((($a = $this->main->islandloader->getAreaByVector3($ev->getBlock()->asVector3())) !== null and $pl->level->getName() == 'island') or (($a = $this->main->skylandloader->getAreaByVector3($ev->getBlock()->asVector3())) !== null and $pl->level->getName() == 'skyland') or (($a = $this->main->fieldloader->getAreaByVector3($ev->getBlock()->asVector3())) !== null and $pl->level->getName() == 'field')) {
-                if ($a->owner == \null and $a->owner->getName() !== $pl->getName() and $a->getShare($pl->getName()) == \null) {
-                    $ev->setCancelled();
-                    $pl->sendMessage("You don't have permission to do it");
+                if ($a->owner == \null or $a->owner->getName() !== $pl->getName()) {
+                    if ($a->getShare($pl->getName()) == \null) {
+                        $ev->setCancelled();
+                        $pl->sendMessage("You don't have permission to do it");
+                    }
                 }
             }
         }
@@ -38,9 +40,11 @@
                 return;
             }
             if ((($a = $this->main->islandloader->getAreaByVector3($ev->getBlock()->asVector3())) !== null and $pl->level->getName() == 'island') or (($a = $this->main->skylandloader->getAreaByVector3($ev->getBlock()->asVector3())) !== null and $pl->level->getName() == 'skyland') or (($a = $this->main->fieldloader->getAreaByVector3($ev->getBlock()->asVector3())) !== null and $pl->level->getName() == 'field')) {
-                if ($a->owner == \null and $a->owner->getName() !== $pl->getName() and $a->getShare($pl->getName()) == \null) {
-                    $ev->setCancelled();
-                    $pl->sendMessage("You don't have permission to do it");
+                if ($a->owner == \null or $a->owner->getName() !== $pl->getName()) {
+                    if ($a->getShare($pl->getName()) == \null) {
+                        $ev->setCancelled();
+                        $pl->sendMessage("You don't have permission to do it");
+                    }
                 }
             }
         }

@@ -38,12 +38,12 @@
                 $sender->sendMessage("Only Player Can see this.");
                 return;
             }
-            $a = (!isset($args[0])) ? $this->owner->skylandloader->getAreaByVector3($sender) : $this->owner->skylandloader->getAreaById($args[0]);
+            $a = (! isset($args[0])) ? $this->owner->skylandloader->getAreaByVector3($sender) : $this->owner->skylandloader->getAreaById($args[0]);
             if ($a == \null) {
                 $sender->sendMessage("Not Registered");
                 return;
             }
-            $sender->sendMessage("====[{$args[0]} skyland]====");
+            $sender->sendMessage("====[{$a->getLandnum()} skyland]====");
             $owner = ($a->owner == \null) ? "None" : $a->owner->getName();
             $sender->sendMessage("Owner : {$owner}");
             $sender->sendMessage("Shares :");

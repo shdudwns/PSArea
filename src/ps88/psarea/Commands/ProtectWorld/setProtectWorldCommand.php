@@ -45,7 +45,8 @@
                 $sender->sendMessage("Can't find any Level");
                 return;
             }
-            $this->owner->protectworld->setLevelProtect($level, \true);
+            $b = (! isset($args[1]) or $args[1] == "true")? \true : \false;
+            $this->owner->protectworld->setLevelProtect($level, $b);
             $sender->sendMessage("{$level->getName()} world will be protected now");
             return;
         }
