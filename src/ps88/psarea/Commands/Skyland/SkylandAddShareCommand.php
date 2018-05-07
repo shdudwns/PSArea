@@ -44,6 +44,10 @@
                 $sender->sendMessage("Not Registered");
                 return \true;
             }
+            if ($a->owner == \null){
+                $sender->sendMessage("It's not your island");
+                return \true;
+            }
             if ($a->owner->getName() !== $sender->getName()) {
                 $sender->sendMessage("It's not your Skyland");
                 return \true;
