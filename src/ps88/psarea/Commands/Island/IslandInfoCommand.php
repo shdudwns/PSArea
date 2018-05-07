@@ -43,7 +43,7 @@
                 $sender->sendMessage("Not Registered");
                 return;
             }
-            $sender->sendMessage("====[{$args[0]} island]====");
+            $sender->sendMessage("====[{$a->getLandnum()} island]====");
             $owner = ($a->owner == \null) ? "None" : $a->owner->getName();
             $sender->sendMessage("Owner : {$owner}");
             $sender->sendMessage("Shares :");
