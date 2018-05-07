@@ -38,7 +38,7 @@
                 $sender->sendMessage("Only Player Can see this.");
                 return \true;
             }
-            $a = (! isset($args[0])) ? $this->owner->skylandloader->getAreaByVector3($sender) : $this->owner->skylandloader->getAreaById($args[0]);
+            $a = (!isset($args[0])) ? $this->owner->skylandloader->getAreaByVector3($sender) : $this->owner->skylandloader->getAreaById($args[0]);
             if ($a == \null) {
                 $sender->sendMessage("Not Registered");
                 return \true;

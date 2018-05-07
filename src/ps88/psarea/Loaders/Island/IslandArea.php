@@ -32,7 +32,7 @@
             $v = $this->getCenter();
             Server::getInstance()->getPluginManager()->callEvent($ev = new LandWarpEvent($this, $pl));
             if ($ev->isCancelled()) return \false;
-            $x = ($this->getLandnum() % 2 == 0)? $v->x : $v->x - 5;
+            $x = ($this->getLandnum() % 2 == 0) ? $v->x : $v->x - 5;
             $pl->teleport(new Position($x, 14, $v->y, Server::getInstance()->getLevelByName('island')));
             return \true;
         }

@@ -28,7 +28,7 @@
                         $ev->setCancelled();
                         $pl->sendMessage("You don't have permission to do it");
                     }
-                }elseif ($a->owner->getName() !== $pl->getName())){
+                } elseif ($a->owner->getName() !== $pl->getName()) {
                     if ($a->getShare($pl->getName()) == \null) {
                         $ev->setCancelled();
                         $pl->sendMessage("You don't have permission to do it");
@@ -50,7 +50,7 @@
                         $ev->setCancelled();
                         $pl->sendMessage("You don't have permission to do it");
                     }
-                }elseif ($a->owner->getName() !== $pl->getName())){
+                } elseif ($a->owner->getName() !== $pl->getName()) {
                     if ($a->getShare($pl->getName()) == \null) {
                         $ev->setCancelled();
                         $pl->sendMessage("You don't have permission to do it");

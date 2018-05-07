@@ -40,7 +40,7 @@
                 $sender->sendMessage("Only Player Can see this.");
                 return \true;
             }
-            if(! isset($args[0])){
+            if (!isset($args[0])) {
                 $sender->sendMessage($this->getUsage());
                 return \true;
             }

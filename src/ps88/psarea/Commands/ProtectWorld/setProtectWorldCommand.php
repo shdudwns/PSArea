@@ -7,7 +7,7 @@
     use pocketmine\Server;
     use ps88\psarea\PSAreaMain;
 
-    class setProtectWorldCommand extends Command{
+    class setProtectWorldCommand extends Command {
         /** @var PSAreaMain */
         private $owner;
 
@@ -36,16 +36,16 @@
                 $sender->sendMessage("Only Player Can see this.");
                 return \true;
             }
-            if (!$sender->isOp ()) {
-               $sender->sendMessage ("No Permission to do it.");
-               return true;
+            if (!$sender->isOp()) {
+                $sender->sendMessage("No Permission to do it.");
+                return true;
             }
-            $level = (! isset($args[0]))? $sender->getLevel(): Server::getInstance()->getLevelByName($args[0]);
-            if($level == \null){
+            $level = (!isset($args[0])) ? $sender->getLevel() : Server::getInstance()->getLevelByName($args[0]);
+            if ($level == \null) {
                 $sender->sendMessage("Can't find any Level");
                 return \true;
             }
-            $b = (! isset($args[1]) or $args[1] == "true")? \true : \false;
+            $b = (!isset($args[1]) or $args[1] == "true") ? \true : \false;
             $this->owner->protectworld->setLevelProtect($level, $b);
             $sender->sendMessage("{$level->getName()} world will be protected now");
             return \true;
