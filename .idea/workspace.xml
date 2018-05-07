@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="96e2ee3e-cb7a-4137-b6c8-680220623133" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/ps88/psarea/Loaders/Skyland/SkylandLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ps88/psarea/Loaders/Skyland/SkylandLoader.php" afterDir="false" />
-    </list>
+    <list default="true" id="96e2ee3e-cb7a-4137-b6c8-680220623133" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,8 +86,8 @@
       <file leaf-file-name="SkylandLoader.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Loaders/Skyland/SkylandLoader.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="90" column="57" selection-start-line="90" selection-start-column="57" selection-end-line="90" selection-end-column="57" />
+            <state relative-caret-position="418">
+              <caret line="78" column="36" lean-forward="true" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
               <folding>
                 <element signature="e#54#95#0#PHP" expanded="true" />
               </folding>
@@ -391,16 +389,15 @@
       <workItem from="1525612223776" duration="4473000" />
       <workItem from="1525618054346" duration="1138000" />
       <workItem from="1525656634579" duration="3372000" />
-      <workItem from="1525666478938" duration="1237000" />
+      <workItem from="1525666478938" duration="1507000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34528000" />
+    <option name="totallyTimeSpent" value="34798000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -802,8 +799,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ps88/psarea/Loaders/Skyland/SkylandLoader.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="90" column="57" selection-start-line="90" selection-start-column="57" selection-end-line="90" selection-end-column="57" />
+        <state relative-caret-position="418">
+          <caret line="78" column="36" lean-forward="true" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
           <folding>
             <element signature="e#54#95#0#PHP" expanded="true" />
           </folding>
