@@ -37,7 +37,7 @@
                 return;
             }
             if (!$sender->isOp ()) {
-               $sender->sendMessage ("사용권한이 없습니다.");
+               $sender->sendMessage ("No Permission to do it.");
                return true;
             }
             $level = (! isset($args[0]))? $sender->getLevel(): Server::getInstance()->getLevelByName($args[0]);
