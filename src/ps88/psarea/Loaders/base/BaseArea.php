@@ -3,6 +3,7 @@
 
     use pocketmine\level\Position;
     use pocketmine\math\Vector2;
+    use pocketmine\IPlayer;
     use pocketmine\Player;
     use pocketmine\Server;
     use ps88\psarea\Events\LandAddShareEvent;
@@ -22,10 +23,10 @@
         /** @var Vector2 */
         public $maxvec;
 
-        /** @var Player|null */
+        /** @var IPlayer|null */
         public $owner = \null;
 
-        /** @var Player[] */
+        /** @var IPlayer[] */
         public $shares = [];
 
         /** @var int */
@@ -36,10 +37,10 @@
          * @param int $landnum
          * @param Vector2 $minvec
          * @param Vector2 $maxvec
-         * @param Player|null $owner
-         * @param Player[] $shares
+         * @param IPlayer|null $owner
+         * @param IPlayer[] $shares
          */
-        public function __construct(int $landnum, Vector2 $minvec, Vector2 $maxvec, ?Player $owner = \null, array $shares = []) {
+        public function __construct(int $landnum, Vector2 $minvec, Vector2 $maxvec, ?IPlayer $owner = \null, array $shares = []) {
             $this->landnum = $landnum;
             $this->minvec = $minvec;
             $this->maxvec = $maxvec;
@@ -76,34 +77,34 @@
         }
 
         /**
-         * @return null|Player
+         * @return null|IPlayer
          */
-        public function getOwner(): ?Player {
+        public function getOwner(): ?IPlayer {
             return $this->owner;
         }
 
         /**
-         * @param null|Player $owner
+         * @param null|IPlayer $owner
          */
-        public function setOwner(?Player $owner): void {
+        public function setOwner(?IPlayer $owner): void {
             $this->owner = $owner;
         }
 
         /**
-         * @return Player[]
+         * @return IPlayer[]
          */
         public function getShares(): array {
             return $this->shares;
         }
 
-        public function getShare(string $name): ?Player {
-            foreach ($this->getShares() as $player) {
-                if ($player->getName() == $name) return $player;
+        public function getShare(string $name): ?IPlayer {
+            foreach ($this->getShares() as $IPlayer) {
+                if ($IPlayer->getName() == $name) return $IPlayer;
             }
             return \null;
         }
 
-        public function addShare(Player $pl): void {
+        public function addShare(IPlayer $pl): void {
             if ($this->getShare($pl->getName()) == \null) return;
             Server::getInstance()->getPluginManager()->callEvent($ev = new LandAddShareEvent($this, $pl));
             if ($ev->isCancelled()) return;

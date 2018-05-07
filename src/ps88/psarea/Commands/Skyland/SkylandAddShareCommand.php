@@ -58,7 +58,7 @@
                 return \true;
             }
             $a->addShare($pl);
-            $sender->sendMessage("You add {$pl->getName()} at {$args[0]} Skyland");
+            $sender->sendMessage("You add {$pl->getName()} at {$a->getLandnum()} Skyland");
             return \true;
         }
     }

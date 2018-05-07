@@ -58,7 +58,7 @@
                 return \true;
             }
             $a->addShare($pl);
-            $sender->sendMessage("You add {$pl->getName()} at {$id} island");
+            $sender->sendMessage("You add {$pl->getName()} at {$a->getLandnum()} island");
             return \true;
         }
     }

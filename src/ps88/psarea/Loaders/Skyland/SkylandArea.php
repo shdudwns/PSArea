@@ -3,6 +3,7 @@
 
     use pocketmine\level\Position;
     use pocketmine\math\Vector2;
+    use pocketmine\IPlayer;
     use pocketmine\Player;
     use pocketmine\Server;
     use ps88\psarea\Events\LandWarpEvent;
@@ -14,7 +15,7 @@
         /** @var Vector2 */
         public $center;
 
-        public function __construct(int $landnum, Vector2 $center, ?Player $owner = \null, $shares = []) {
+        public function __construct(int $landnum, Vector2 $center, ?IPlayer $owner = \null, $shares = []) {
             $this->center = $center;
             $minv = new Vector2($center->x - 100, $center->y - 100);
             $maxv = new Vector2($center->x + 100, $center->y + 100);
