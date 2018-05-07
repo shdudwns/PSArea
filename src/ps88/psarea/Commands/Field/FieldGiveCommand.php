@@ -1,28 +1,28 @@
 <?php
-    namespace ps88\psarea\Commands\Skyland;
+    namespace ps88\psarea\Commands\Field;
 
     use nlog\StormCore\StormPlayer;
     use pocketmine\command\Command;
     use pocketmine\command\CommandSender;
     use pocketmine\Player;
     use pocketmine\Server;
-    use ps88\psarea\Loaders\Skyland\SkylandLoader;
+    use ps88\psarea\Loaders\Field\FieldLoader;
     use ps88\psarea\PSAreaMain;
 
-    class SkylandGiveCommand extends Command {
+    class FieldGiveCommand extends Command {
 
         /** @var PSAreaMain */
         private $owner;
 
         /**
-         * SkylandGiveCommand constructor.
+         * FieldGiveCommand constructor.
          * @param string $name
          * @param PSAreaMain $owner
          * @param string $description
          * @param string|null $usageMessage
          * @param array $aliases
          */
-        public function __construct(PSAreaMain $owner, string $name = "giveskyland", string $description = "Give Skyland to other Player", string $usageMessage = "/giveskyland [player] [id]", $aliases = ['Player', 'Id']) {
+        public function __construct(PSAreaMain $owner, string $name = "givefield", string $description = "Give field to other Player", string $usageMessage = "/givefield [player] [id]", $aliases = ['Player', 'Id']) {
             parent::__construct($name, $description, $usageMessage, $aliases);
             $this->owner = $owner;
         }
@@ -39,7 +39,7 @@
                 $sender->sendMessage("Only Player Can see this.");
                 return \true;
             }
-            $a = (!isset($args[1])) ? $this->owner->skylandloader->getAreaByVector3($sender) : $this->owner->skylandloader->getAreaById($args[1]);
+            $a = (!isset($args[1])) ? $this->owner->fieldloader->getAreaByVector3($sender) : $this->owner->fieldloader->getAreaById($args[1]);
             if ($a == \null) {
                 $sender->sendMessage("Not Registered");
                 return \true;
@@ -53,7 +53,7 @@
                 $sender->sendMessage("Doesn't exist");
                 return \true;
             }
-            if (count($this->owner->skylandloader->getAreasByOwner($pl->getName())) >= SkylandLoader::Maximum_Lands) {
+            if (count($this->owner->fieldloader->getAreasByOwner($pl->getName())) >= FieldLoader::Maximum_Lands) {
                 $sender->sendMessage("He has maximum Lands");
                 return \true;
             }

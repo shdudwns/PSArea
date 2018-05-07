@@ -1,28 +1,28 @@
 <?php
-    namespace ps88\psarea\Commands\Skyland;
+    namespace ps88\psarea\Commands\Field;
 
     use nlog\StormCore\StormPlayer;
     use pocketmine\command\Command;
     use pocketmine\command\CommandSender;
     use pocketmine\Player;
     use pocketmine\Server;
-    use ps88\psarea\Loaders\Skyland\SkylandLoader;
+    use ps88\psarea\Loaders\Field\fieldloader;
     use ps88\psarea\PSAreaMain;
 
-    class SkylandGiveCommand extends Command {
+    class FieldAddShareCommand extends Command {
 
         /** @var PSAreaMain */
         private $owner;
 
         /**
-         * SkylandGiveCommand constructor.
+         * FieldAddShareCommand constructor.
          * @param string $name
          * @param PSAreaMain $owner
          * @param string $description
          * @param string|null $usageMessage
          * @param array $aliases
          */
-        public function __construct(PSAreaMain $owner, string $name = "giveskyland", string $description = "Give Skyland to other Player", string $usageMessage = "/giveskyland [player] [id]", $aliases = ['Player', 'Id']) {
+        public function __construct(PSAreaMain $owner, string $name = "addfieldshare", string $description = "Add Field Shared Player", string $usageMessage = "/addfieldshare [player] [id]", $aliases = ['Player', 'Id']) {
             parent::__construct($name, $description, $usageMessage, $aliases);
             $this->owner = $owner;
         }
@@ -39,12 +39,20 @@
                 $sender->sendMessage("Only Player Can see this.");
                 return \true;
             }
-            $a = (!isset($args[1])) ? $this->owner->skylandloader->getAreaByVector3($sender) : $this->owner->skylandloader->getAreaById($args[1]);
+            $a = (!isset($args[1])) ? $this->owner->fieldloader->getAreaByVector3($sender) : $this->owner->fieldloader->getAreaById($args[1]);
             if ($a == \null) {
                 $sender->sendMessage("Not Registered");
                 return \true;
             }
-            if (!isset($args[0])) {
+            if ($a->owner == \null) {
+                $sender->sendMessage("It's not your Field");
+                return \true;
+            }
+            if ($a->owner->getName() !== $sender->getName()) {
+                $sender->sendMessage("It's not your Field");
+                return \true;
+            }
+            if (!isset($args[1])) {
                 $sender->sendMessage($this->getUsage());
                 return \true;
             }
@@ -53,12 +61,8 @@
                 $sender->sendMessage("Doesn't exist");
                 return \true;
             }
-            if (count($this->owner->skylandloader->getAreasByOwner($pl->getName())) >= SkylandLoader::Maximum_Lands) {
-                $sender->sendMessage("He has maximum Lands");
-                return \true;
-            }
-            $a->setOwner($pl);
-            $sender->sendMessage("Owner Changed!!");
-            $pl->sendMessage("You got {$a->getLandnum()} by {$sender->getName()}");
+            $a->addShare($pl);
+            $sender->sendMessage("You add {$pl->getName()} at {$a->getLandnum()} Field");
+            return \true;
         }
     }

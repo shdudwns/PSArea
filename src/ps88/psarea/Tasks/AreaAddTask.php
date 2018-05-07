@@ -3,6 +3,7 @@
 
     use pocketmine\math\Vector2;
     use pocketmine\scheduler\PluginTask;
+    use ps88\psarea\Loaders\Field\FieldLoader;
     use ps88\psarea\Loaders\Island\IslandArea;
     use ps88\psarea\Loaders\Island\IslandLoader;
     use ps88\psarea\Loaders\Skyland\SkylandArea;

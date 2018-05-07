@@ -7,6 +7,12 @@
             event\player\PlayerInteractEvent,
             plugin\PluginBase
     };
+    use ps88\psarea\Commands\Field\FieldAddShareCommand;
+    use ps88\psarea\Commands\Field\FieldBuyCommand;
+    use ps88\psarea\Commands\Field\FieldGiveCommand;
+    use ps88\psarea\Commands\Field\FieldInfoCommand;
+    use ps88\psarea\Commands\Field\FieldRegisteredList;
+    use ps88\psarea\Commands\Field\FieldWarpCommand;
     use ps88\psarea\Commands\Island\IslandAddShareCommand;
     use ps88\psarea\Commands\Island\IslandBuyCommand;
     use ps88\psarea\Commands\Island\IslandGiveCommand;
@@ -24,6 +30,7 @@
     use ps88\psarea\Commands\Skyland\SkylandInfoCommand;
     use ps88\psarea\Commands\Skyland\SkylandWarpCommand;
     use ps88\psarea\Loaders\base\BaseLoader;
+    use ps88\psarea\Loaders\Field\FieldListener;
     use ps88\psarea\Loaders\Field\FieldLoader;
     use ps88\psarea\Loaders\Land\LandListener;
     use ps88\psarea\Loaders\Land\LandLoader;
@@ -54,15 +61,19 @@
         /** @var ProtectWorld */
         public $protectworld;
 
-        public function onEnable() {
+        public function onLoad() {
             $this->fieldloader = new FieldLoader();
             $this->islandloader = new IslandLoader();
             $this->skylandloader = new SkylandLoader();
             $this->landloader = new LandLoader();
+        }
+
+        public function onEnable() {
             $this->protectworld = new ProtectWorld($this);
             $this->getServer()->getPluginManager()->registerEvents($this, $this);
             $this->getServer()->getPluginManager()->registerEvents(new LandListener($this), $this);
             $this->getServer()->getScheduler()->scheduleRepeatingTask(new AreaAddTask($this), 3);
+            $this->getServer()->getPluginManager()->registerEvents(new FieldListener($this), $this);
             $this->loadLevels();
             $this->registerCommands();
             if ($this->getServer()->getPluginManager()->getPlugin('StormCore') !== \null) {
@@ -113,7 +124,13 @@
                     new LandGiveCommand($this),
                     new LandWarpCommand($this),
                     new LandInfoCommand($this),
-                    new LandMakeCommand($this)
+                    new LandMakeCommand($this),
+                new FieldAddShareCommand($this),
+                new FieldBuyCommand($this),
+                new FieldGiveCommand($this),
+                new FieldInfoCommand($this),
+                    new FieldWarpCommand($this),
+                new FieldRegisteredList($this)
             ]);
         }
 

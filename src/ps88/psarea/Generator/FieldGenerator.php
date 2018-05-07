@@ -10,10 +10,15 @@
     use pocketmine\block\Block;
     use pocketmine\block\Stone as BlockStone;
     use pocketmine\level\ChunkManager;
+    use pocketmine\math\Vector2;
     use pocketmine\math\Vector3;
+    use pocketmine\Server;
     use pocketmine\utils\{
             Random, Config
     };
+    use ps88\psarea\Loaders\Field\FieldArea;
+    use ps88\psarea\Loaders\Field\FieldLoader;
+    use ps88\psarea\PSAreaMain;
 
     class FieldGenerator extends Generator {
 
