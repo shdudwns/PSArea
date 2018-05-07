@@ -12,8 +12,8 @@
         /** @var Plugin */
         private $moneyAPI;
 
-        /** @var MoneyTranslator */
-        private static $instance;
+        /** @var MoneyTranslator|null */
+        private static $instance = null;
 
         public function __construct(Plugin $moneyAPI) {
             self::$instance = $this;
@@ -24,10 +24,8 @@
             $pl = ($player instanceof Player) ? $player : Server::getInstance()->getPlayer($player);
             if ($this->moneyAPI instanceof EconomyAPI) {
                 return $this->moneyAPI->myMoney($player);
-            } elseif ($this->moneyAPI instanceof StormCore) {
-                if ($pl instanceof StormPlayer) {
-                    return $pl->getMoney();
-                }
+            } elseif ($this->moneyAPI instanceof StormCore && $pl instanceof StormPlayer) {
+                return $pl->getMoney();
             }
             return \null;
         }
@@ -36,36 +34,39 @@
             $pl = ($player instanceof Player) ? $player : Server::getInstance()->getPlayer($player);
             if ($this->moneyAPI instanceof EconomyAPI) {
                 $this->moneyAPI->addMoney($player, $money);
-            } elseif ($this->moneyAPI instanceof StormCore) {
-                if ($pl instanceof StormPlayer) {
-                    $pl->addMoney($money);
-                }
+                return true;
+            } elseif ($this->moneyAPI instanceof StormCore && $pl instanceof StormPlayer) {
+                $pl->addMoney($money);
+                return true;
             }
+            return false;
         }
 
         public function reduceMoney($player, int $money): void {
             $pl = ($player instanceof Player) ? $player : Server::getInstance()->getPlayer($player);
             if ($this->moneyAPI instanceof EconomyAPI) {
                 $this->moneyAPI->reduceMoney($player, $money);
-            } elseif ($this->moneyAPI instanceof StormCore) {
-                if ($pl instanceof StormPlayer) {
-                    $pl->reduceMoney($money);
-                }
+                return true;
+            } elseif ($this->moneyAPI instanceof StormCore && $pl instanceof StormPlayer) {
+                   $pl->reduceMoney($money);
+                   return true;
             }
+            return false;
         }
 
         public function setMoney($player, int $money): void {
             $pl = ($player instanceof Player) ? $player : Server::getInstance()->getPlayer($player);
             if ($this->moneyAPI instanceof EconomyAPI) {
                 $this->moneyAPI->setMoney($player, $money);
-            } elseif ($this->moneyAPI instanceof StormCore) {
-                if ($pl instanceof StormPlayer) {
-                    $pl->setMoney($money);
-                }
+                return true;
+            } elseif ($this->moneyAPI instanceof StormCore && $pl instanceof StormPlayer) {
+                $pl->setMoney($money);
+                return true;
             }
+            return false;
         }
 
-        public static function getInstance(): self {
+        public static function getInstance(): ?MoneyTranslator {
             return self::$instance;
         }
     }
