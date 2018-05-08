@@ -4,42 +4,51 @@
 
     use pocketmine\{
             event\Listener,
-            event\player\PlayerInteractEvent,
             plugin\PluginBase
     };
-    use ps88\psarea\Commands\Field\FieldAddShareCommand;
-    use ps88\psarea\Commands\Field\FieldBuyCommand;
-    use ps88\psarea\Commands\Field\FieldDelShareCommand;
-    use ps88\psarea\Commands\Field\FieldGiveCommand;
-    use ps88\psarea\Commands\Field\FieldInfoCommand;
-    use ps88\psarea\Commands\Field\FieldRegisteredList;
-    use ps88\psarea\Commands\Field\FieldWarpCommand;
-    use ps88\psarea\Commands\Island\IslandAddShareCommand;
-    use ps88\psarea\Commands\Island\IslandBuyCommand;
-    use ps88\psarea\Commands\Island\IslandGiveCommand;
-    use ps88\psarea\Commands\Island\IslandInfoCommand;
-    use ps88\psarea\Commands\Island\IslandWarpCommand;
-    use ps88\psarea\Commands\Land\IslandDelShareCommand;
-    use ps88\psarea\Commands\Land\LandAddShareCommand;
-    use ps88\psarea\Commands\Land\LandBuyCommand;
-    use ps88\psarea\Commands\Land\LandDelShareCommand;
-    use ps88\psarea\Commands\Land\LandGiveCommand;
-    use ps88\psarea\Commands\Land\LandInfoCommand;
-    use ps88\psarea\Commands\Land\LandMakeCommand;
-    use ps88\psarea\Commands\Land\LandWarpCommand;
-    use ps88\psarea\Commands\Skyland\SkylandAddShareCommand;
-    use ps88\psarea\Commands\Skyland\SkylandBuyCommand;
-    use ps88\psarea\Commands\Skyland\SkylandDelShareCommand;
-    use ps88\psarea\Commands\Skyland\SkylandGiveCommand;
-    use ps88\psarea\Commands\Skyland\SkylandInfoCommand;
-    use ps88\psarea\Commands\Skyland\SkylandWarpCommand;
-    use ps88\psarea\Loaders\base\BaseLoader;
-    use ps88\psarea\Loaders\Field\FieldListener;
-    use ps88\psarea\Loaders\Field\FieldLoader;
-    use ps88\psarea\Loaders\Land\LandListener;
-    use ps88\psarea\Loaders\Land\LandLoader;
-    use ps88\psarea\Loaders\Island\IslandLoader;
-    use ps88\psarea\Loaders\Skyland\SkylandLoader;
+    use ps88\psarea\Commands\Field\{
+            FieldAddShareCommand,
+            FieldBuyCommand,
+            FieldDelShareCommand,
+            FieldGiveCommand,
+            FieldInfoCommand,
+            FieldRegisteredList,
+            FieldWarpCommand
+    };
+    use ps88\psarea\Commands\Island\{
+            IslandAddShareCommand,
+            IslandBuyCommand,
+            IslandDelShareCommand,
+            IslandGiveCommand,
+            IslandInfoCommand,
+            IslandWarpCommand
+    };
+    use ps88\psarea\Commands\Land\{
+            LandAddShareCommand,
+            LandBuyCommand,
+            LandDelShareCommand,
+            LandGiveCommand,
+            LandInfoCommand,
+            LandMakeCommand,
+            LandWarpCommand
+    };
+    use ps88\psarea\Commands\Skyland\{
+            SkylandAddShareCommand,
+            SkylandBuyCommand,
+            SkylandDelShareCommand,
+            SkylandGiveCommand,
+            SkylandInfoCommand,
+            SkylandWarpCommand
+    };
+    use ps88\psarea\Loaders\{
+            base\BaseLoader,
+            Field\FieldListener,
+            Field\FieldLoader,
+            Land\LandListener,
+            Land\LandLoader,
+            Island\IslandLoader,
+            Skyland\SkylandLoader
+    };
     use ps88\psarea\MoneyTranslate\MoneyTranslator;
     use ps88\psarea\ProtectWorld\ProtectWorld;
     use ps88\psarea\Commands\ProtectWorld\setProtectWorldCommand;

@@ -1,5 +1,5 @@
 <?php
-    namespace ps88\psarea\Commands\Land;
+    namespace ps88\psarea\Commands\Island;
 
     use nlog\StormCore\StormPlayer;
     use pocketmine\command\Command;
