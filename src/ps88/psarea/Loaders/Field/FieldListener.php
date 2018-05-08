@@ -25,9 +25,9 @@
             $pl = $ev->getTo();
             $x = (int) $pl->getX();
             $z = (int) $pl->getZ();
-                if (($x - 7) % 37 == 0 and ($z - 7) % 37 == 0) {
-                    if ($this->main->fieldloader->getAreaByVector3(new Vector3($x, 0, $z))) return;
-                    $this->main->fieldloader->addArea(new FieldArea(FieldLoader::$landcount++, new Vector2($x, $z), new Vector2($x + 29, $z + 29)));
-                }
+            if (($x - 7) % 37 == 0 and ($z - 7) % 37 == 0) {
+                if ($this->main->fieldloader->getAreaByVector3(new Vector3($x, 0, $z))) return;
+                $this->main->fieldloader->addArea(new FieldArea(FieldLoader::$landcount++, new Vector2($x, $z), new Vector2($x + 29, $z + 29)));
+            }
         }
     }

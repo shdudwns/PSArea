@@ -33,19 +33,19 @@
                     return;
                 }
             }
-            if (! ProtectWorld::getInstance()->isLevelProtected($pl->getLevel())) {
-                if (($a = $this->main->landloader->getAreaByPosition($pl->asPosition())) !== null){
-                    if ($a->owner == \null){
+            if (!ProtectWorld::getInstance()->isLevelProtected($pl->getLevel())) {
+                if (($a = $this->main->landloader->getAreaByPosition($pl->asPosition())) !== null) {
+                    if ($a->owner == \null) {
                         $ev->setCancelled();
                         return;
                     }
-                    if($a->owner->getName() == $pl->getName() or $a->getShare($pl->getName()) !== \null){
+                    if ($a->owner->getName() == $pl->getName() or $a->getShare($pl->getName()) !== \null) {
                         return;
                     }
                 }
                 $ev->setCancelled();
                 return;
-            }else{
+            } else {
                 $ev->setCancelled();
             }
             return;
@@ -69,19 +69,19 @@
                     return;
                 }
             }
-            if (! ProtectWorld::getInstance()->isLevelProtected($pl->getLevel())) {
-                if (($a = $this->main->landloader->getAreaByPosition($pl->asPosition())) !== null){
-                    if ($a->owner == \null){
+            if (!ProtectWorld::getInstance()->isLevelProtected($pl->getLevel())) {
+                if (($a = $this->main->landloader->getAreaByPosition($pl->asPosition())) !== null) {
+                    if ($a->owner == \null) {
                         $ev->setCancelled();
                         return;
                     }
-                    if($a->owner->getName() == $pl->getName() or $a->getShare($pl->getName()) !== \null){
+                    if ($a->owner->getName() == $pl->getName() or $a->getShare($pl->getName()) !== \null) {
                         return;
                     }
                 }
                 $ev->setCancelled();
                 return;
-            }else{
+            } else {
                 $ev->setCancelled();
             }
             return;

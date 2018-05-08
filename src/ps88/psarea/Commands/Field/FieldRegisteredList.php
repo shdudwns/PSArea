@@ -5,7 +5,7 @@
     use pocketmine\command\CommandSender;
     use ps88\psarea\PSAreaMain;
 
-    class FieldRegisteredList extends Command{
+    class FieldRegisteredList extends Command {
         /** @var PSAreaMain */
         private $owner;
 
@@ -32,7 +32,7 @@
         public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
             $s = "[Field List] : ";
             foreach ($this->owner->fieldloader->getAreas() as $area) {
-                if($area->owner == \null) continue;
+                if ($area->owner == \null) continue;
                 $s .= "[" . $area->getLandnum() . "]";
             }
             $sender->sendMessage($s);

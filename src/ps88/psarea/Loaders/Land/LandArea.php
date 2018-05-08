@@ -21,7 +21,7 @@
             $this->level = $level;
         }
 
-        public function Warp(Player $pl) : bool{
+        public function Warp(Player $pl): bool {
             $v = $this->getMinVector();
             $v2 = $this->getMaxVector();
             Server::getInstance()->getPluginManager()->callEvent($ev = new LandWarpEvent($this, $pl));

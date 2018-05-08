@@ -16,7 +16,7 @@
 
         public static $landcount = 0;
 
-        /** @var FieldLoader|null  */
+        /** @var FieldLoader|null */
         private static $Instance = \null;
 
         public function __construct() {
@@ -108,19 +108,19 @@
                     array_push($s, Server::getInstance()->getOfflinePlayer($share));
                 }
                 $o = ($value['owner'] == \null) ? \null : Server::getInstance()->getOfflinePlayer($value['owner']);
-                $this->addArea(new FieldArea($key,  new Vector2($value['minv'][0], $value['minv'][1]), new Vector2($value['maxv'][0], $value['maxv'][1]), $o, $s));
+                $this->addArea(new FieldArea($key, new Vector2($value['minv'][0], $value['minv'][1]), new Vector2($value['maxv'][0], $value['maxv'][1]), $o, $s));
                 if (self::$landcount < $key) self::$landcount = $key;
             }
         }
 
-        public function isRegistered($x, $z): bool{
+        public function isRegistered($x, $z): bool {
             foreach ($this->getAreas() as $area) {
-                if($area->getMaxVector()->x >= $x and $area->getMaxVector()->y >= $z and $area->getMinVector()->x <= $x and $area->getMinVector()->y <= $z) return \true;
+                if ($area->getMaxVector()->x >= $x and $area->getMaxVector()->y >= $z and $area->getMinVector()->x <= $x and $area->getMinVector()->y <= $z) return \true;
             }
             return \false;
         }
 
-        public static function getInstance(): ?FieldLoader{
+        public static function getInstance(): ?FieldLoader {
             return self::$Instance;
         }
     }

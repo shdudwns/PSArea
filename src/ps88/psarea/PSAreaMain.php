@@ -9,6 +9,7 @@
     };
     use ps88\psarea\Commands\Field\FieldAddShareCommand;
     use ps88\psarea\Commands\Field\FieldBuyCommand;
+    use ps88\psarea\Commands\Field\FieldDelShareCommand;
     use ps88\psarea\Commands\Field\FieldGiveCommand;
     use ps88\psarea\Commands\Field\FieldInfoCommand;
     use ps88\psarea\Commands\Field\FieldRegisteredList;
@@ -18,14 +19,17 @@
     use ps88\psarea\Commands\Island\IslandGiveCommand;
     use ps88\psarea\Commands\Island\IslandInfoCommand;
     use ps88\psarea\Commands\Island\IslandWarpCommand;
+    use ps88\psarea\Commands\Land\IslandDelShareCommand;
     use ps88\psarea\Commands\Land\LandAddShareCommand;
     use ps88\psarea\Commands\Land\LandBuyCommand;
+    use ps88\psarea\Commands\Land\LandDelShareCommand;
     use ps88\psarea\Commands\Land\LandGiveCommand;
     use ps88\psarea\Commands\Land\LandInfoCommand;
     use ps88\psarea\Commands\Land\LandMakeCommand;
     use ps88\psarea\Commands\Land\LandWarpCommand;
     use ps88\psarea\Commands\Skyland\SkylandAddShareCommand;
     use ps88\psarea\Commands\Skyland\SkylandBuyCommand;
+    use ps88\psarea\Commands\Skyland\SkylandDelShareCommand;
     use ps88\psarea\Commands\Skyland\SkylandGiveCommand;
     use ps88\psarea\Commands\Skyland\SkylandInfoCommand;
     use ps88\psarea\Commands\Skyland\SkylandWarpCommand;
@@ -125,12 +129,16 @@
                     new LandWarpCommand($this),
                     new LandInfoCommand($this),
                     new LandMakeCommand($this),
-                new FieldAddShareCommand($this),
-                new FieldBuyCommand($this),
-                new FieldGiveCommand($this),
-                new FieldInfoCommand($this),
+                    new FieldAddShareCommand($this),
+                    new FieldBuyCommand($this),
+                    new FieldGiveCommand($this),
+                    new FieldInfoCommand($this),
                     new FieldWarpCommand($this),
-                new FieldRegisteredList($this)
+                    new FieldRegisteredList($this),
+                    new IslandDelShareCommand($this),
+                    new LandDelShareCommand($this),
+                    new SkylandDelShareCommand($this),
+                    new FieldDelShareCommand($this),
             ]);
         }
 

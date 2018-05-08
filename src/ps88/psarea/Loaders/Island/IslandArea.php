@@ -17,7 +17,7 @@
 
         public function __construct(int $landnum, Vector2 $center, ?IPlayer $owner = \null, $shares = []) {
             $this->center = $center;
-            $minv = new Vector2($center->x - 100, $center->y - 100);
+            $minv = new Vector2($center->x - 99, $center->y - 99);
             $maxv = new Vector2($center->x + 100, $center->y + 100);
             parent::__construct($landnum, $minv, $maxv, $owner, $shares);
         }
