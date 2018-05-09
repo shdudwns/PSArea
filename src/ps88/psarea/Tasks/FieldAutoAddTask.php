@@ -31,18 +31,18 @@
             while(\true) {
                 $this->addArea($x, $xz);
                 $x = $x - 37;
-                if($x <= 8) break;
+                if($x <= 7) break;
             }
             while(\true) {
                 $this->addArea($xz, $z);
                 $z = $z - 37;
-                if($z <= 8) break;
+                if($z <= 7) break;
             }
             FieldLoader::$diagonalcount++;
         }
 
         public function addArea($x, $z) {
-            if (($x - 8) % 37 == 0 and ($z - 8) % 37 == 0) {
+            if (($x - 7) % 37 == 0 and ($z - 7) % 37 == 0) {
                 if ($this->owner->fieldloader->getAreaByVector3(new Vector3($x, 0, $z))) return;
                 $this->owner->fieldloader->addArea(new FieldArea(FieldLoader::$landcount++, new Vector2($x, $z), new Vector2($x + 29, $z + 29)));
             }
