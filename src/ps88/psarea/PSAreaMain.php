@@ -42,7 +42,6 @@
     };
     use ps88\psarea\Loaders\{
             base\BaseLoader,
-            Field\FieldListener,
             Field\FieldLoader,
             Land\LandListener,
             Land\LandLoader,
@@ -53,6 +52,7 @@
     use ps88\psarea\ProtectWorld\ProtectWorld;
     use ps88\psarea\Commands\ProtectWorld\setProtectWorldCommand;
     use ps88\psarea\Tasks\AreaAddTask;
+    use ps88\psarea\Tasks\FieldAutoAddTask;
 
     class PSAreaMain extends PluginBase implements Listener {
 
@@ -86,7 +86,7 @@
             $this->getServer()->getPluginManager()->registerEvents($this, $this);
             $this->getServer()->getPluginManager()->registerEvents(new LandListener($this), $this);
             $this->getServer()->getScheduler()->scheduleRepeatingTask(new AreaAddTask($this), 3);
-            $this->getServer()->getPluginManager()->registerEvents(new FieldListener($this), $this);
+            $this->getServer()->getScheduler()->scheduleRepeatingTask(new FieldAutoAddTask($this), 20);
             $this->loadLevels();
             $this->registerCommands();
             if ($this->getServer()->getPluginManager()->getPlugin('StormCore') !== \null) {

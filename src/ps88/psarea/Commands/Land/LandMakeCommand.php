@@ -49,6 +49,8 @@
                 $sender->sendMessage("Exist");
                 return \true;
             }
+            $idd = LandLoader::$landcount;
+            $sender->sendMessage("Start making {$idd} land");
             $this->owner->landloader->startRegister($sender, LandLoader::$landcount++, $sender->getLevel());
             $sender->sendMessage("Pls touch 2 points");
             return \true;

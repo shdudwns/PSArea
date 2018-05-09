@@ -16,6 +16,8 @@
 
         public static $landcount = 0;
 
+        public static $diagonalcount = 0;
+
         /** @var FieldLoader|null */
         private static $Instance = \null;
 
