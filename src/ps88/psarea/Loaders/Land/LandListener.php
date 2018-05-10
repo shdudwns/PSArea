@@ -3,6 +3,7 @@
 
     use pocketmine\event\Listener;
     use pocketmine\event\player\PlayerInteractEvent;
+    use pocketmine\level\Position;
     use pocketmine\math\Vector2;
     use ps88\psarea\PSAreaMain;
 
@@ -19,6 +20,7 @@
             $pl = $ev->getPlayer();
             $bl = $ev->getTouchVector();
             if (!$this->main->landloader->DoingRegister($pl)) return;
+            if ($this->main->landloader->getAreaByPosition(new Position($bl->x, $bl->y, $bl->z, $pl->level)) == \null) return;
             if (!$this->main->landloader->isFirstVecRegister($pl)) {
                 $this->main->landloader->FirstVecRegister($pl, new Vector2($bl->x, $bl->z));
                 $pl->sendMessage("Registered First Vector2");

@@ -36,20 +36,20 @@
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
             if (!$sender instanceof Player) {
-                $sender->sendMessage("Only Player Can see this.");
+                $sender->sendMessage(PSAreaMain::get("only-player"));
                 return \true;
             }
-            $a = (!isset($args[1])) ? $this->owner->landloader->getAreaByVector3($sender) : $this->owner->landloader->getAreaById($args[1]);
+            $a = (!isset($args[1])) ? $this->owner->landloader->getAreaByPosition($sender) : $this->owner->landloader->getAreaById($args[1]);
             if ($a == \null) {
-                $sender->sendMessage("Not Registered");
+                $sender->sendMessage(PSAreaMain::get("not-registered"));
                 return \true;
             }
             if ($a->owner == \null) {
-                $sender->sendMessage("It's not your Field");
+                $sender->sendMessage(PSAreaMain::get("not-yours", \true, ["@type", "land"]));
                 return \true;
             }
             if ($a->owner->getName() !== $sender->getName()) {
-                $sender->sendMessage("It's not your Field");
+                $sender->sendMessage(PSAreaMain::get("not-yours", \true, ["@type", "land"]));
                 return \true;
             }
             if (!isset($args[1])) {
@@ -58,11 +58,11 @@
             }
             $pl = Server::getInstance()->getPlayer($args[0]);
             if ($pl == \null) {
-                $sender->sendMessage("Doesn't exist");
+                $sender->sendMessage(PSAreaMain::get("doesnt-exist"));
                 return \true;
             }
             $a->delShare($pl);
-            $sender->sendMessage("You del {$pl->getName()} at {$a->getLandnum()} Land");
+            $sender->sendMessage("You del {$pl->getName()} at {$a->getLandnum()} land");
             return \true;
         }
     }

@@ -6,7 +6,7 @@
     use pocketmine\command\CommandSender;
     use pocketmine\Player;
     use pocketmine\Server;
-    use ps88\psarea\Loaders\Field\fieldloader;
+    use ps88\psarea\Loaders\island\islandloader;
     use ps88\psarea\PSAreaMain;
 
     class IslandDelShareCommand extends Command {
@@ -15,7 +15,7 @@
         private $owner;
 
         /**
-         * FieldAddShareCommand constructor.
+         * islandAddShareCommand constructor.
          * @param string $name
          * @param PSAreaMain $owner
          * @param string $description
@@ -36,20 +36,20 @@
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
             if (!$sender instanceof Player) {
-                $sender->sendMessage("Only Player Can see this.");
+                $sender->sendMessage(PSAreaMain::get("only-player"));
                 return \true;
             }
             $a = (!isset($args[1])) ? $this->owner->islandloader->getAreaByVector3($sender) : $this->owner->islandloader->getAreaById($args[1]);
             if ($a == \null) {
-                $sender->sendMessage("Not Registered");
+                $sender->sendMessage(PSAreaMain::get("not-registered"));
                 return \true;
             }
             if ($a->owner == \null) {
-                $sender->sendMessage("It's not your Field");
+                $sender->sendMessage(PSAreaMain::get("not-yours", \true, ["@type", "island"]));
                 return \true;
             }
             if ($a->owner->getName() !== $sender->getName()) {
-                $sender->sendMessage("It's not your Field");
+                $sender->sendMessage(PSAreaMain::get("not-yours", \true, ["@type", "island"]));
                 return \true;
             }
             if (!isset($args[1])) {
@@ -58,11 +58,11 @@
             }
             $pl = Server::getInstance()->getPlayer($args[0]);
             if ($pl == \null) {
-                $sender->sendMessage("Doesn't exist");
+                $sender->sendMessage(PSAreaMain::get("doesnt-exist"));
                 return \true;
             }
             $a->delShare($pl);
-            $sender->sendMessage("You del {$pl->getName()} at {$a->getLandnum()} Island");
+            $sender->sendMessage("You del {$pl->getName()} at {$a->getLandnum()} island");
             return \true;
         }
     }

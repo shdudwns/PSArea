@@ -4,7 +4,12 @@
 
     use pocketmine\{
             event\Listener,
-            plugin\PluginBase
+            lang\BaseLang,
+            lang\TextContainer,
+            plugin\PluginBase,
+            utils\Color,
+            utils\Config,
+            utils\TextFormat
     };
     use ps88\psarea\Commands\Field\{
             FieldAddShareCommand,
@@ -74,6 +79,12 @@
         /** @var ProtectWorld */
         public $protectworld;
 
+        /** @var Config */
+        public static $langcf;
+
+        /** @var Config */
+        public $setting;
+
         public function onLoad() {
             $this->fieldloader = new FieldLoader();
             $this->islandloader = new IslandLoader();
@@ -87,6 +98,14 @@
             $this->getServer()->getPluginManager()->registerEvents(new LandListener($this), $this);
             $this->getServer()->getScheduler()->scheduleRepeatingTask(new AreaAddTask($this), 3);
             $this->getServer()->getScheduler()->scheduleRepeatingTask(new FieldAutoAddTask($this), 20);
+            @mkdir($this->getDataFolder());
+            $this->setting = new Config($this->getDataFolder()."setting.yml", Config::YAML, [
+                    "lang" => "eng"
+            ]);
+            if(!file_exists($this->getDataFolder()."lang.yml")) {
+                file_put_contents($this->getDataFolder() . "lang.yml", stream_get_contents($this->getResource("lang.yml")));
+            }
+            self::$langcf = new Config($this->getDataFolder(). "lang.yml", Config::YAML);
             $this->loadLevels();
             $this->registerCommands();
             if ($this->getServer()->getPluginManager()->getPlugin('StormCore') !== \null) {
@@ -149,6 +168,31 @@
                     new SkylandDelShareCommand($this),
                     new FieldDelShareCommand($this),
             ]);
+        }
+
+        /**
+         * @param string $key
+         * @param array ...$args
+         * @return null|string
+         */
+        public static function get(string $key, bool $prefix = \true, array... $args): ?string{
+            if(! self::$langcf->exists("message-".$key)) return \null;
+            $st = self::$langcf->get("message-".$key);
+            /** @var array $arg */
+            foreach ($args as $arg) {
+                $st = str_replace($arg[0], $arg[1], $st);
+            }
+            $pr = ($prefix)? TextFormat::BOLD . self::$langcf->get("Prefix") : "";
+            return $pr.TextFormat::RESET.$st;
+        }
+
+        /**
+         * @param string $key
+         * @return mixed|null
+         */
+        public static function getCommands(string $key){
+            if(! self::$langcf->exists("message-".$key)) return \null;
+            return self::$langcf->get("commands-".$key);
         }
 
         /**

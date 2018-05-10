@@ -35,20 +35,20 @@
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
             if (!$sender instanceof Player) {
-                $sender->sendMessage("Only Player Can see this.");
+                $sender->sendMessage(PSAreaMain::get("only-player"));
                 return \true;
             }
             $a = (!isset($args[0])) ? $this->owner->islandloader->getAreaByVector3($sender) : $this->owner->islandloader->getAreaById($args[0]);
             if ($a == \null) {
-                $sender->sendMessage("Not Registered");
+                $sender->sendMessage(PSAreaMain::get("not-registered"));
                 return \true;
             }
-            $sender->sendMessage("====[{$a->getLandnum()} island]====");
-            $owner = ($a->owner == \null) ? "None" : $a->owner->getName();
-            $sender->sendMessage("Owner : {$owner}");
-            $sender->sendMessage("Shares :");
+            $sender->sendMessage(PSAreaMain::get("info-start", \true, ["@landnum", $a->getLandnum()], ["@type", "island"]));
+            $owner = ($a->owner == \null) ? PSAreaMain::get("none") : $a->owner->getName();
+            $sender->sendMessage(PSAreaMain::get("owner", \true, ["@owner", $owner]));
+            $sender->sendMessage(PSAreaMain::get("shares"));
             if (empty($a->getShares())) {
-                $sender->sendMessage("None");
+                $sender->sendMessage(PSAreaMain::get("none"));
             } else {
                 foreach ($a->getShares() as $share) {
                     $sender->sendMessage($share->getName());

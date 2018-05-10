@@ -30,7 +30,7 @@
          * @return bool
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
-            $s = "[Field List] : ";
+            $s = PSAreaMain::get("field-list"). " : ";
             foreach ($this->owner->fieldloader->getAreas() as $area) {
                 if ($area->owner == \null) continue;
                 $s .= "[" . $area->getLandnum() . "]";

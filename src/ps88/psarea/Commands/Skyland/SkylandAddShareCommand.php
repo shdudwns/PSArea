@@ -36,20 +36,20 @@
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
             if (!$sender instanceof Player) {
-                $sender->sendMessage("Only Player Can see this.");
+                $sender->sendMessage(PSAreaMain::get("only-player"));
                 return \true;
             }
-            $a = (!isset($args[1])) ? $this->owner->islandloader->getAreaByVector3($sender) : $this->owner->islandloader->getAreaById($args[1]);
+            $a = (!isset($args[1])) ? $this->owner->skylandloader->getAreaByVector3($sender) : $this->owner->skylandloader->getAreaById($args[1]);
             if ($a == \null) {
-                $sender->sendMessage("Not Registered");
+                $sender->sendMessage(PSAreaMain::get("not-registered"));
                 return \true;
             }
             if ($a->owner == \null) {
-                $sender->sendMessage("It's not your island");
+                $sender->sendMessage(PSAreaMain::get("not-yours", \true, ["@type", "skyland"]));
                 return \true;
             }
             if ($a->owner->getName() !== $sender->getName()) {
-                $sender->sendMessage("It's not your Skyland");
+                $sender->sendMessage(PSAreaMain::get("not-yours", \true, ["@type", "skyland"]));
                 return \true;
             }
             if (!isset($args[1])) {
@@ -58,11 +58,11 @@
             }
             $pl = Server::getInstance()->getPlayer($args[0]);
             if ($pl == \null) {
-                $sender->sendMessage("Doesn't exist");
+                $sender->sendMessage(PSAreaMain::get("doesnt-exist"));
                 return \true;
             }
             $a->addShare($pl);
-            $sender->sendMessage("You add {$pl->getName()} at {$a->getLandnum()} Skyland");
+            $sender->sendMessage(PSAreaMain::get("you-add-share", \true, ["@player", $pl->getName()], ["@landnum", $a->getLandnum()], ["@type", "skyland"]));
             return \true;
         }
     }

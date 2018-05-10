@@ -37,7 +37,7 @@
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
             if (!$sender instanceof Player) {
-                $sender->sendMessage("Only Player Can see this.");
+                $sender->sendMessage(PSAreaMain::get("only-player"));
                 return \true;
             }
             if (!isset($args[0])) {
@@ -46,14 +46,14 @@
             }
             $id = (int) $args[0];
             if (($a = $this->owner->fieldloader->getAreaById($id)) == \null) {
-                $sender->sendMessage("Not Registered");
+                $sender->sendMessage(PSAreaMain::get("not-registered"));
                 return \true;
             }
             if (!$a->Warp($sender)) {
-                $sender->sendMessage("Cancelled by Plugin");
+                $sender->sendMessage(PSAreaMain::get("cancelled"));
                 return \true;
             }
-            $sender->sendMessage("Warped to {$id} Field");
+            $sender->sendMessage(PSAreaMain::get("warp-to", \true, ["@landnum", $id], ["@type", "field"]));
             return \true;
         }
     }

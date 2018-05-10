@@ -36,12 +36,12 @@
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
             if (!$sender instanceof Player) {
-                $sender->sendMessage("Only Player Can see this.");
+                $sender->sendMessage(PSAreaMain::get("only-player"));
                 return \true;
             }
             $a = (!isset($args[1])) ? $this->owner->skylandloader->getAreaByVector3($sender) : $this->owner->skylandloader->getAreaById($args[1]);
             if ($a == \null) {
-                $sender->sendMessage("Not Registered");
+                $sender->sendMessage(PSAreaMain::get("not-registered"));
                 return \true;
             }
             if (!isset($args[0])) {
@@ -50,15 +50,15 @@
             }
             $pl = Server::getInstance()->getPlayer($args[0]);
             if ($pl == \null) {
-                $sender->sendMessage("Doesn't exist");
+                $sender->sendMessage(PSAreaMain::get("doesnt-exist"));
                 return \true;
             }
             if (count($this->owner->skylandloader->getAreasByOwner($pl->getName())) >= SkylandLoader::Maximum_Lands) {
-                $sender->sendMessage("He has maximum Lands");
+                $sender->sendMessage(PSAreaMain::get("you-have-max", \true, ["@type", "skyland"]));
                 return \true;
             }
             $a->setOwner($pl);
-            $sender->sendMessage("Owner Changed!!");
-            $pl->sendMessage("You got {$a->getLandnum()} by {$sender->getName()}");
+            $sender->sendMessage(PSAreaMain::get("owner-changed"));
+            $pl->sendMessage(PSAreaMain::get("you-got", \true, ["@landnum", $a->getLandnum()], ["@player", $sender->getName()]));
         }
     }
