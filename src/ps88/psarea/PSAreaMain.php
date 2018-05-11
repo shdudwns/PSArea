@@ -140,34 +140,34 @@
 
         public function registerCommands(): void {
             $this->getServer()->getCommandMap()->registerAll('PSArea', [
-                    new IslandAddShareCommand($this),
-                    new IslandBuyCommand($this),
-                    new IslandGiveCommand($this),
-                    new IslandInfoCommand($this),
-                    new IslandWarpCommand($this),
-                    new SkylandAddShareCommand($this),
-                    new SkylandBuyCommand($this),
-                    new SkylandGiveCommand($this),
-                    new SkylandInfoCommand($this),
-                    new SkylandWarpCommand($this),
-                    new setProtectWorldCommand($this),
-                    new LandAddShareCommand($this),
-                    new LandBuyCommand($this),
-                    new LandGiveCommand($this),
-                    new LandWarpCommand($this),
-                    new LandInfoCommand($this),
-                    new LandMakeCommand($this),
-                    new FieldAddShareCommand($this),
-                    new FieldBuyCommand($this),
-                    new FieldGiveCommand($this),
-                    new FieldInfoCommand($this),
-                    new FieldWarpCommand($this),
-                    new FieldRegisteredList($this),
-                    new IslandDelShareCommand($this),
-                    new LandDelShareCommand($this),
-                    new SkylandDelShareCommand($this),
-                    new FieldDelShareCommand($this),
-            ]);
+                    new FieldAddShareCommand($this, self::getCommands("field-addshare-name"), self::getCommands("field-addshare-description"), self::getCommands("field-addshare-usage"), self::getCommands("field-addshare-aliases")),
+                    new FieldBuyCommand($this, self::getCommands("field-buy-name"), self::getCommands("field-buy-description"), self::getCommands("field-buy-usage"), self::getCommands("field-buy-aliases")),
+                    new FieldGiveCommand($this, self::getCommands("field-give-name"), self::getCommands("field-give-description"), self::getCommands("field-give-usage"), self::getCommands("field-give-aliases")),
+                    new FieldInfoCommand($this, self::getCommands("field-info-name"), self::getCommands("field-info-description"), self::getCommands("field-info-usage"), self::getCommands("field-info-aliases")),
+                    new FieldWarpCommand($this, self::getCommands("field-warp-name"), self::getCommands("field-warp-description"), self::getCommands("field-warp-usage"), self::getCommands("field-warp-aliases")),
+                    new FieldDelShareCommand($this, self::getCommands("field-delshare-name"), self::getCommands("field-delshare-description"), self::getCommands("field-delshare-usage"), self::getCommands("field-delshare-aliases")),
+                    new IslandAddShareCommand($this, self::getCommands("island-addshare-name"), self::getCommands("island-addshare-description"), self::getCommands("island-addshare-usage"), self::getCommands("island-addshare-aliases")),
+                    new IslandBuyCommand($this, self::getCommands("island-buy-name"), self::getCommands("island-buy-description"), self::getCommands("island-buy-usage"), self::getCommands("island-buy-aliases")),
+                    new IslandGiveCommand($this, self::getCommands("island-give-name"), self::getCommands("island-give-description"), self::getCommands("island-give-usage"), self::getCommands("island-give-aliases")),
+                    new IslandInfoCommand($this, self::getCommands("island-info-name"), self::getCommands("island-info-description"), self::getCommands("island-info-usage"), self::getCommands("island-info-aliases")),
+                    new IslandWarpCommand($this, self::getCommands("island-warp-name"), self::getCommands("island-warp-description"), self::getCommands("island-warp-usage"), self::getCommands("island-warp-aliases")),
+                    new IslandDelShareCommand($this, self::getCommands("island-delshare-name"), self::getCommands("island-delshare-description"), self::getCommands("island-delshare-usage"), self::getCommands("island-delshare-aliases")),
+                    new SkylandAddShareCommand($this, self::getCommands("skyland-addshare-name"), self::getCommands("skyland-addshare-description"), self::getCommands("skyland-addshare-usage"), self::getCommands("skyland-addshare-aliases")),
+                    new SkylandBuyCommand($this, self::getCommands("skyland-buy-name"), self::getCommands("skyland-buy-description"), self::getCommands("skyland-buy-usage"), self::getCommands("skyland-buy-aliases")),
+                    new SkylandGiveCommand($this, self::getCommands("skyland-give-name"), self::getCommands("skyland-give-description"), self::getCommands("skyland-give-usage"), self::getCommands("skyland-give-aliases")),
+                    new SkylandInfoCommand($this, self::getCommands("skyland-info-name"), self::getCommands("skyland-info-description"), self::getCommands("skyland-info-usage"), self::getCommands("skyland-info-aliases")),
+                    new SkylandWarpCommand($this, self::getCommands("skyland-warp-name"), self::getCommands("skyland-warp-description"), self::getCommands("skyland-warp-usage"), self::getCommands("skyland-warp-aliases")),
+                    new SkylandDelShareCommand($this, self::getCommands("skyland-delshare-name"), self::getCommands("skyland-delshare-description"), self::getCommands("skyland-delshare-usage"), self::getCommands("skyland-delshare-aliases")),
+                    new LandAddShareCommand($this, self::getCommands("land-addshare-name"), self::getCommands("land-addshare-description"), self::getCommands("land-addshare-usage"), self::getCommands("land-addshare-aliases")),
+                    new LandBuyCommand($this, self::getCommands("land-buy-name"), self::getCommands("land-buy-description"), self::getCommands("land-buy-usage"), self::getCommands("land-buy-aliases")),
+                    new LandGiveCommand($this, self::getCommands("land-give-name"), self::getCommands("land-give-description"), self::getCommands("land-give-usage"), self::getCommands("land-give-aliases")),
+                    new LandInfoCommand($this, self::getCommands("land-info-name"), self::getCommands("land-info-description"), self::getCommands("land-info-usage"), self::getCommands("land-info-aliases")),
+                    new LandWarpCommand($this, self::getCommands("land-warp-name"), self::getCommands("land-warp-description"), self::getCommands("land-warp-usage"), self::getCommands("land-warp-aliases")),
+                    new LandDelShareCommand($this, self::getCommands("land-delshare-name"), self::getCommands("land-delshare-description"), self::getCommands("land-delshare-usage"), self::getCommands("land-delshare-aliases")),
+                    new FieldRegisteredList($this, self::getCommands("field-registeredlist-name"), self::getCommands("field-registeredlist-description"), self::getCommands("field-registeredlist-usage"), self::getCommands("field-registeredlist-aliases")),
+                    new LandMakeCommand($this, self::getCommands("land-make-name"), self::getCommands("land-make-description"), self::getCommands("land-make-usage"), self::getCommands("land-make-aliases")),
+                    new setProtectWorldCommand($this, self::getCommands("protectworld-set-name"), self::getCommands("protectworld-set-description"), self::getCommands("protectworld-set-usage"), self::getCommands("protectworld-set-aliases"))
+                    ]);
         }
 
         /**
@@ -191,7 +191,7 @@
          * @return mixed|null
          */
         public static function getCommands(string $key){
-            if(! self::$langcf->exists("message-".$key)) return \null;
+            if(! self::$langcf->exists("commands-".$key)) return \null;
             return self::$langcf->get("commands-".$key);
         }
 

@@ -107,7 +107,7 @@ commands-skyland-warp-aliases: ["Id"]
 commands-protectworld-set-name: "setprotectworld"
 commands-protectworld-set-description: "Set protected world"
 commands-protectworld-set-usage: "/setprotectworld [level] [isProtect(default: true)]"
-commands-protectworld-set-alias: ["level", "isProtect"]
+commands-protectworld-set-aliases: ["level", "isProtect"]
 
 #Message
 # @type is Land Type(Island, Field, Skyland, Land)
