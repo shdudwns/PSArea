@@ -39,6 +39,9 @@
                 if($z <= 7) break;
             }
             FieldLoader::$diagonalcount++;
+            if((FieldLoader::$diagonalcount % 30) == 0){
+                $this->getHandler()->setNextRun(FieldLoader::$diagonalcount / 20 );
+            }
         }
 
         public function addArea($x, $z) {

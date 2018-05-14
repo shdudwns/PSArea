@@ -33,21 +33,21 @@
          */
         public function execute(CommandSender $sender, string $commandLabel, array $args): bool {
             if (!$sender instanceof Player) {
-                $sender->sendMessage("Only Player Can see this.");
+                $sender->sendMessage(PSAreaMain::get("only-player"));
                 return \true;
             }
             if (!$sender->isOp()) {
-                $sender->sendMessage("No Permission to do it.");
+                $sender->sendMessage(PSAreaMain::get("no-permission"));
                 return true;
             }
             $level = (!isset($args[0])) ? $sender->getLevel() : Server::getInstance()->getLevelByName($args[0]);
             if ($level == \null) {
-                $sender->sendMessage("Can't find any Level");
+                $sender->sendMessage(PSAreaMain::get("cant-find-level"));
                 return \true;
             }
             $b = (!isset($args[1]) or $args[1] == "true") ? \true : \false;
             $this->owner->protectworld->setLevelProtect($level, $b);
-            $sender->sendMessage("{$level->getName()} world will be protected now");
+            $sender->sendMessage(PSAreaMain::get("world-will-be-protected", \true, ["@level", $level->getName()]));
             return \true;
         }
     }

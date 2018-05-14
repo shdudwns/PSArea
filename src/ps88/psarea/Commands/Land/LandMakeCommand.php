@@ -41,12 +41,8 @@
                 $sender->sendMessage("Only Player Can Buy this.");
                 return \true;
             }
-            if ($sender->getLevel()->getName() == "island" or $sender->getLevel()->getName() == "skyland" or $sender->getLevel()->getName() == "field") {
+            if ($sender->getLevel()->getName() == "land" or $sender->getLevel()->getName() == "skyland" or $sender->getLevel()->getName() == "field") {
                 $sender->sendMessage("You can't make Land at {$sender->getLevel()->getName()} Level");
-                return \true;
-            }
-            if ($this->owner->landloader->getAreaByPosition($sender->asPosition()) !== \null) {
-                $sender->sendMessage("Exist");
                 return \true;
             }
             $idd = LandLoader::$landcount;
