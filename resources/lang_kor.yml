@@ -1,0 +1,142 @@
+Prefix: "[ PSArea ]"
+# Commands
+commands-field-addshare-name: "평야공유"
+commands-field-addshare-description: "자신의 평야를 공유(플레이어)해주는 커맨드"
+commands-field-addshare-usage: "/평야공유 [이름] [id]"
+commands-field-addshare-aliases: ["Player", "Id"]
+commands-field-buy-name: "평야구매"
+commands-field-buy-description: "평야 구매 명령어"
+commands-field-buy-usage: "/평야구매 [id]"
+commands-field-buy-aliases: ["Id"]
+commands-field-delshare-name: "평야공유삭제"
+commands-field-delshare-description: "자신의 평야에서 공유(플레이어)를 삭제해주는 커맨드"
+commands-field-delshare-usage: "/평야공유삭제 [플레이어] [id]"
+commands-field-delshare-aliases: ["Player", "Id"]
+commands-field-give-name: "평야주기"
+commands-field-give-description: "원하는 플레이어에게 평야를 줍니다."
+commands-field-give-usage: "/평야주기 [플레이어] [id]"
+commands-field-give-aliases: ["Player", "Id"]
+commands-field-info-name: "평야정보"
+commands-field-info-description: "다른 평야 또는 자신의 평야의 정보 커맨드"
+commands-field-info-usage: "/평야정보 [id]"
+commands-field-info-aliases: ["Id"]
+commands-field-registeredlist-name: "평야목록"
+commands-field-registeredlist-description: "자신의 구매한 평야 번호를 보는 커맨드"
+commands-field-registeredlist-usage: "/평야목록"
+commands-field-registeredlist-aliases: []
+commands-field-warp-name: "평야이동"
+commands-field-warp-description: "원하는 평야로 이동하는 커맨드"
+commands-field-warp-usage: "/평야이동 [id]"
+commands-field-warp-aliases: ["Id"]
+commands-island-addshare-name: "섬공유"
+commands-island-addshare-description: "자신의 섬을 공유(플레이어)해주는 커맨드"
+commands-island-addshare-usage: "/addislandshare [player] [id]"
+commands-island-addshare-aliases: ["Player", "Id"]
+commands-island-buy-name: "buyisland"
+commands-island-buy-description: "Buy island"
+commands-island-buy-usage: "/buyisland [id]"
+commands-island-buy-aliases: ["Id"]
+commands-island-delshare-name: "delislandshare"
+commands-island-delshare-description: "Delete island Shared Player"
+commands-island-delshare-usage: "/delislandshare [player] [id]"
+commands-island-delshare-aliases: ["Player", "Id"]
+commands-island-give-name: "giveisland"
+commands-island-give-description: "Give island to other Player"
+commands-island-give-usage: "/giveisland [player] [id]"
+commands-island-give-aliases: ["Player", "Id"]
+commands-island-info-name: "infoisland"
+commands-island-info-description: "Get island info"
+commands-island-info-usage: "/infoisland [id]"
+commands-island-info-aliases: ["Id"]
+commands-island-warp-name: "warpisland"
+commands-island-warp-description: "Warp to island"
+commands-island-warp-usage: "/warpisland [id]"
+commands-island-warp-aliases: ["Id"]
+commands-land-addshare-name: "addlandshare"
+commands-land-addshare-description: "Add land Shared Player"
+commands-land-addshare-usage: "/addlandshare [player] [id]"
+commands-land-addshare-aliases: ["Player", "Id"]
+commands-land-buy-name: "buyland"
+commands-land-buy-description: "Buy land"
+commands-land-buy-usage: "/buyland [id]"
+commands-land-buy-aliases: ["Id"]
+commands-land-delshare-name: "dellandshare"
+commands-land-delshare-description: "Delete land Shared Player"
+commands-land-delshare-usage: "/dellandshare [player] [id]"
+commands-land-delshare-aliases: ["Player", "Id"]
+commands-land-give-name: "giveland"
+commands-land-give-description: "Give land to other Player"
+commands-land-give-usage: "/giveland [player] [id]"
+commands-land-give-aliases: ["Player", "Id"]
+commands-land-info-name: "infoland"
+commands-land-info-description: "Get land info"
+commands-land-info-usage: "/infoland [id]"
+commands-land-info-aliases: ["Id"]
+commands-land-make-name: "makeland"
+commands-land-make-description: "Make land"
+commands-land-make-usage: "/makeland [id]"
+commands-land-make-aliases: ["id"]
+commands-land-warp-name: "warpland"
+commands-land-warp-description: "Warp to land"
+commands-land-warp-usage: "/warpland [id]"
+commands-land-warp-aliases: ["Id"]
+commands-skyland-addshare-name: "addskylandshare"
+commands-skyland-addshare-description: "Add skyland Shared Player"
+commands-skyland-addshare-usage: "/addskylandshare [player] [id]"
+commands-skyland-addshare-aliases: ["Player", "Id"]
+commands-skyland-buy-name: "buyskyland"
+commands-skyland-buy-description: "Buy skyland"
+commands-skyland-buy-usage: "/buyskyland [id]"
+commands-skyland-buy-aliases: ["Id"]
+commands-skyland-delshare-name: "delskylandshare"
+commands-skyland-delshare-description: "Delete skyland Shared Player"
+commands-skyland-delshare-usage: "/delskylandshare [player] [id]"
+commands-skyland-delshare-aliases: ["Player", "Id"]
+commands-skyland-give-name: "giveskyland"
+commands-skyland-give-description: "Give skyland to other Player"
+commands-skyland-give-usage: "/giveskyland [player] [id]"
+commands-skyland-give-aliases: ["Player", "Id"]
+commands-skyland-info-name: "infoskyland"
+commands-skyland-info-description: "Get skyland info"
+commands-skyland-info-usage: "/infoskyland [id]"
+commands-skyland-info-aliases: ["Id"]
+commands-skyland-warp-name: "warpskyland"
+commands-skyland-warp-description: "Warp to skyland"
+commands-skyland-warp-usage: "/warpskyland [id]"
+commands-skyland-warp-aliases: ["Id"]
+commands-protectworld-set-name: "setprotectworld"
+commands-protectworld-set-description: "Set protected world"
+commands-protectworld-set-usage: "/setprotectworld [level] [isProtect(default: true)]"
+commands-protectworld-set-aliases: ["level", "isProtect"]
+
+#Message
+# @type is Land Type(Island, Field, Skyland, Land)
+message-only-player: "Only Player Can see this"
+message-not-registered: "Not Registered"
+message-not-yours: "It's not your @type"
+message-doesnt-exist: "Doesn't exist"
+message-you-add-share: "You add @player at @landnum @type"
+message-owner-exist: "Owner already Exist"
+message-you-have-max: "You already have maximum @type"
+message-you-need-money: "You need @money to buy"
+message-cancelled: "Cancelled by Plugin"
+message-you-bought: "You bought @landnum @type"
+message-your-money-now: "Your money now : @money"
+message-you-del-share: "You del @player at @landnum @type"
+message-target-have-max: "You have maximum lands"
+message-owner-changed: "Owner Changed"
+message-you-got: "You got @landnum by @player"
+message-info-start: "===[@landnum @type]===="
+message-owner: "Owner : @owner"
+message-shares: "Shares :"
+message-none: "None"
+message-field-list: "[Field List]"
+message-warp-to: "Warped to @landnum @type"
+message-land-cant-make-at: "You can't make land at @level Level"
+message-land-start-making: "Start making @landnum land"
+message-touch-2: "Pls touch 2 points"
+message-no-permission: "No Permission"
+message-cant-find-level: "Can't find any level"
+message-world-will-be-protected: "@level Level will be protected now"
+message-registered-first-vector2: "Registered First Vector2"
+message-registered-all: "Registered all"
